@@ -3,15 +3,21 @@
 </template>
 
 <script>
-  import { mapActions } from 'vuex'
+  import { mapActions, mapGetters } from 'vuex'
 
   export default {
     name: 'HomeAddToCart',
     props: {
       product: Object
     },
-    methods: mapActions([
-      'addToCart'
-    ])
+    computed: {
+      ...mapGetters([
+        'itemsQuantity'
+      ])},
+    methods: {
+      ...mapActions ([
+        'addToCart'
+      ])
+    }
   }
 </script>

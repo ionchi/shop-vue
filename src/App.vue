@@ -6,7 +6,8 @@
       </v-btn>
       <v-list>
         <v-list-tile
-          to="/">
+          to="/"
+          @click.stop="sidebar = !sidebar">
           <v-list-tile-action>
             <v-icon>home</v-icon>
           </v-list-tile-action>
@@ -15,7 +16,8 @@
         <v-list v-if="this.$route.path==='/'">
           <v-list-tile
             to="/"
-            v-scroll-to="{ el: '#about', offset: -45 }">
+            v-scroll-to="{ el: '#about', offset: -45 }"
+            @click.stop="sidebar = !sidebar">
             <v-list-tile-action>
               <v-icon></v-icon>
             </v-list-tile-action>
@@ -23,7 +25,8 @@
           </v-list-tile>
           <v-list-tile
             to="/"
-            v-scroll-to="{ el: '#our-products', offset: -45 }">
+            v-scroll-to="{ el: '#our-products', offset: -45 }"
+            @click.stop="sidebar = !sidebar">
             <v-list-tile-action>
               <v-icon></v-icon>
             </v-list-tile-action>
@@ -31,23 +34,26 @@
           </v-list-tile>
           <v-list-tile
             to="/"
-            v-scroll-to="{ el: '#contact', offset: -45 }">
-            <v-list-tile-action>
-              <v-icon></v-icon>
-            </v-list-tile-action>
-            <v-list-tile-content>Contacteaza-Ne</v-list-tile-content>
-          </v-list-tile>
-          <v-list-tile
-            to="/"
-            v-scroll-to="{ el: '#faq', offset: -45 }">
+            v-scroll-to="{ el: '#faq', offset: -45 }"
+            @click.stop="sidebar = !sidebar">
             <v-list-tile-action>
               <v-icon></v-icon>
             </v-list-tile-action>
             <v-list-tile-content>Intrebari frecvente</v-list-tile-content>
           </v-list-tile>
+          <v-list-tile
+            to="/"
+            v-scroll-to="{ el: '#contact', offset: -45 }"
+            @click.stop="sidebar = !sidebar">
+            <v-list-tile-action>
+              <v-icon></v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>Contacteaza-Ne</v-list-tile-content>
+          </v-list-tile>
         </v-list>
         <v-list-tile
-          to="/shop">
+          to="/shop"
+          @click.stop="sidebar = !sidebar">
           <v-list-tile-action>
             <v-icon>shopping_cart</v-icon>
           </v-list-tile-action>

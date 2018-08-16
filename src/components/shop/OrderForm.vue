@@ -3,37 +3,79 @@
     <v-card>
       <v-card-text>
         <v-form ref="form" v-model="valid" lazy-validation>
-          <v-text-field
-            v-model="name"
-            :rules="nameRules"
-            label="Nume"
-            required
-          ></v-text-field>
-          <v-text-field
-            v-model="phone"
-            :rules="phoneRules"
-            label="Telefon"
-            required
-          ></v-text-field>
-          <v-text-field
-            v-model="address"
-            :rules="addressRules"
-            label="Adresa"
-            :counter="25"
-            required
-          ></v-text-field>
-          <v-text-field
-            v-model="email"
-            :rules="emailRules"
-            label="E-mail"
-          ></v-text-field>
-          <v-btn
-            :disabled="!valid"
-            @click="submit"
-          >
-            Trimite
-          </v-btn>
-          <v-btn @click="clear">Sterge</v-btn>
+          <v-layout row align-center justify-center>
+            <v-flex xs11 sm11>
+              <v-text-field
+                v-model="name"
+                :rules="nameRules"
+                label="Nume *"
+                required
+              ></v-text-field>
+            </v-flex>
+            <v-flex xs11 sm11>
+              <v-text-field
+                v-model="address"
+                :rules="addressRules"
+                label="Adresa *"
+                :counter="25"
+                required
+              ></v-text-field>
+            </v-flex>
+            <v-flex xs11 sm3>
+              <v-text-field
+                v-model="block"
+                label="Bloc"
+              ></v-text-field>
+            </v-flex>
+            <v-flex xs11 sm3 offset-sm1>
+              <v-text-field
+                v-model="unit"
+                label="Scara"
+              ></v-text-field>
+            </v-flex>
+            <v-flex xs11 sm3 offset-sm1>
+              <v-text-field
+                v-model="interphone"
+                label="Interfon"
+              ></v-text-field>
+            </v-flex>
+            <v-flex xs11 sm11>
+              <v-text-field
+                v-model="phone"
+                :rules="phoneRules"
+                label="Telefon *"
+                required
+              ></v-text-field>
+            </v-flex>
+            <v-flex xs11 sm11>
+              <v-text-field
+                v-model="email"
+                :rules="emailRules"
+                label="E-mail"
+              ></v-text-field>
+            </v-flex>
+            <v-flex xs11 sm11>
+              <v-textarea
+                v-model="info"
+                label="Informatie suplimentara"
+              ></v-textarea>
+            </v-flex>
+            <v-flex xs11 sm11>
+              <v-radio-group v-model="payment" row :mandatory="false">
+                <v-radio color="indigo darken-3" label="Plata in numerar" value="numerar"></v-radio>
+                <v-radio color="indigo darken-3" label="Curier card de credit" value="card"></v-radio>
+              </v-radio-group>
+            </v-flex>
+            <v-flex xs11 sm11>
+              <v-btn
+                :disabled="!valid"
+                @click="submit"
+              >
+                Trimite
+              </v-btn>
+              <v-btn @click="clear">Sterge</v-btn>
+            </v-flex>
+          </v-layout>
         </v-form>
       </v-card-text>
     </v-card>
@@ -89,7 +131,7 @@
         ],
         email: '',
         emailRules: [
-          v => /.+@.+/.test(v) || 'Adresa e-mail trebuie sa fie valida'
+          v => (/.+@.+/.test(v) || v==='' || v === " " || v === undefined) || 'Adresa e-mail trebuie sa fie valida',
         ],
         phone: '',
         phoneRules: [
@@ -103,7 +145,12 @@
         addressRules: [
           v => !!v || 'Este nevoie de adresa',
           v => (v && v.length <= 25) || 'Numele trebuie sa aiba mai putin de 25 de litere'
-        ]
+        ],
+        unit: '',
+        block: '',
+        interphone: '',
+        info: '',
+        payment: 'numerar'
       };
     },
     methods: {
@@ -115,10 +162,15 @@
             email: this.email,
             phone: this.phone,
             address: this.address,
+            unit: this.unit,
+            block: this.block,
+            interphone: this.interphone,
+            info: this.info,
+            payment: this.payment,
             cartProducts: this.cartProducts,
             shipping: this.shipping,
             subtotal: this.subtotal,
-            total: this.total
+            total: this.total,
           })
             .then(response => {
               this.dialog = true;
@@ -131,6 +183,7 @@
       },
       clear () {
         this.$refs.form.reset();
+        this.payment = 'numerar';
       },
       redirectHome () {
         this.dialog = false;

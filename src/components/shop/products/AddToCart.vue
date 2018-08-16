@@ -1,5 +1,5 @@
 <template>
-  <v-btn color="info" :disabled="!product.inventory" @click="addToCart(product); toChk()">Adaugă în Coș!</v-btn>
+  <v-btn color="info" :disabled="!product.inventory" @click="addToCart(product)">Adaugă în Coș!</v-btn>
 </template>
 
 <script>
@@ -15,14 +15,7 @@
         'itemsQuantity'
       ])},
     methods: {
-      ...mapActions(['addToCart']),
-      toChk() {
-        this.$route.params.item = this.itemsQuantity;
-      }
+      ...mapActions(['addToCart'])
     }
-
-
-
-
   }
 </script>

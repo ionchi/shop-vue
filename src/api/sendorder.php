@@ -6,6 +6,11 @@
   $name = $data->name;
   $telno = $data->phone;
   $address = $data->address;
+  $unit = $data->unit;
+  $block = $data->block;
+  $interphone = $data->interphone;
+  $info = $data->info;
+  $payment = $data->payment;
   $email = $data->email;
   $cartProducts = $data->cartProducts;
   $cart_shipping = $data->shipping;
@@ -67,7 +72,7 @@ if (!mysql_query($sql,$con))
       $cartResult[] = $value->quantity;
   }
 
-  $message = 'Nume: ' . $name . "\n\n" .'Adresa: ' . $address . "\n\n" .'Telefon: ' . $telno . "\n\n" . 'E-mail: ' . $email . "\n\n" . 'Cart: ' . print_r( $cartResult, true ) . "\n\n" . 'Total: ' . $cart_total;
+  $message = 'Nume: ' . $name . "\n\n" .'Telefon: ' . $telno . "\n\n" .'Adresa: ' . $address . "\n\n" .'Bloc: ' . $block . "\n\n" .'Scara: ' . $unit . "\n\n" .'Interfon: ' . $interphone . "\n\n" .'Info supl: ' . $info . "\n\n" .'Plata: ' . $payment . "\n\n" . 'E-mail: ' . $email . "\n\n" . 'Cart: ' . print_r( $cartResult, true ) . "\n\n" . 'Total: ' . $cart_total;
 
   $success = @mail($email_to, "[comanda noua]".$email, $message);
 
