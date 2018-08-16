@@ -7,6 +7,10 @@
   $telno = $data->phone;
   $address = $data->address;
   $email = $data->email;
+  $cartProducts = $data->cartProducts;
+  $cart_shipping = $data->shipping;
+  $cart_subtotal = $data->subtotal;
+  $cart_total = $data->total;
   $email_to = $configs->email_to;
 /*
 
@@ -55,9 +59,17 @@ if (!mysql_query($sql,$con))
 
   $email_from = $email;
 
-  $message = 'Nume: ' . $name . "\n\n" .'Telefon: ' . $telno . "\n\n" . 'E-mail: ' . $email;
+  $cartResult = array();
 
-  $success = @mail($email_to, "[comanda noua]".$email, "$name $telno \n$address \n\n$product_one_qty $product_one_name \n$product_two_qty $product_two_name \n$product_three_qty $product_three_name \n\nSpre plata: $cart_total");
+  foreach ($cartProducts as $value) {
+      $cartResult[] = $value->title;
+      $cartResult[] = $value->price;
+      $cartResult[] = $value->quantity;
+  }
+
+  $message = 'Nume: ' . $name . "\n\n" .'Adresa: ' . $address . "\n\n" .'Telefon: ' . $telno . "\n\n" . 'E-mail: ' . $email . "\n\n" . 'Cart: ' . print_r( $cartResult, true ) . "\n\n" . 'Total: ' . $cart_total;
+
+  $success = @mail($email_to, "[comanda noua]".$email, $message);
 
   $noreply = @mail($email_from, "[dryco.md] | Mulțumim pentru comanda!", "Comanda d-stra a fost plasata cu succes, in curînd, un reprezentant al companiei dryco.md va lua legătura cu d-stră. Suma spre plata:".$cart_total);
 

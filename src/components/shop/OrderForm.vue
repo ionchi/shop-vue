@@ -34,7 +34,6 @@
             Trimite
           </v-btn>
           <v-btn @click="clear">Sterge</v-btn>
-          <v-btn @click="test">test</v-btn>
         </v-form>
       </v-card-text>
     </v-card>
@@ -55,7 +54,7 @@
           <v-btn
             color="green darken-1"
             flat="flat"
-            @click="dialog = false"
+            @click="redirectHome()"
           >
             Închide
           </v-btn>
@@ -67,15 +66,14 @@
 </template>
 
 <script>
-  import { mapGetters, mapState } from 'vuex'
+  import { mapGetters } from 'vuex'
+  import axios from 'axios'
 
   export default {
     name: 'OrderForm',
     computed: {
       ...mapGetters([
-        'itemsQuantity',
         'subtotal',
-        'taxes',
         'shipping',
         'total',
         'cartProducts'
@@ -112,11 +110,15 @@
       submit () {
         if (this.$refs.form.validate()) {
           // Native form submission is not yet supported
-          /*axios.post('../api/sendorder.php', {
+          axios.post('../api/sendorder.php', {
             name: this.name,
             email: this.email,
             phone: this.phone,
             address: this.address,
+            cartProducts: this.cartProducts,
+            shipping: this.shipping,
+            subtotal: this.subtotal,
+            total: this.total
           })
             .then(response => {
               this.dialog = true;
@@ -125,20 +127,14 @@
             .catch(function (error) {
               console.log(error);
             });
-            */
-          window.alert("Comanda plasata");
         }
       },
       clear () {
         this.$refs.form.reset();
       },
-      test () {
-        var list=[];
-
-        this.cartProducts.map(function(value, key) {
-          list.push(value);
-        });
-        console.log(list)
+      redirectHome () {
+        this.dialog = false;
+        window.location = "/";
       }
     }
   };

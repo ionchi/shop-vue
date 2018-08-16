@@ -1,6 +1,4 @@
 <template>
-
-
   <v-container>
     <v-flex xs12 sm12 class="my-3">
       <div>
@@ -21,6 +19,7 @@
 <script>
   import ShoppingCart from './shopping-cart/ShoppingCart'
   import OrderForm from './OrderForm'
+  import { mapGetters } from 'vuex'
 
   export default {
     name: 'Checkout',
@@ -28,11 +27,12 @@
       OrderForm,
       ShoppingCart
     },
-    methods: {
-      buy () {
-        window.alert('You bought :)');
-        window.location.href = "/";
-      }
+    ...mapGetters([
+      'itemsQuantity'
+    ]),
+    beforeRouteEnter (to, from, next) {
+      if (from.params.item>0) next();
+      else next('/shop');
     }
   };
 </script>

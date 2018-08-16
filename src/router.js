@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HomePage from './components/HomePage'
 import Shop from './components/shop/Shop'
 import Checkout from './components/shop/Checkout'
+import PageNotFound from './components/shared/PageNotFound'
 
 Vue.use(Router);
 
@@ -23,6 +24,11 @@ export default new Router({
       path: '/checkout',
       name: 'checkout',
       component: Checkout
+    },
+    {
+      path: '*',
+      name: 'error',
+      component: PageNotFound
     }
   ],
   scrollBehavior () {

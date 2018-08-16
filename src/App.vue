@@ -6,45 +6,46 @@
       </v-btn>
       <v-list>
         <v-list-tile
-          to="/"
-          v-scroll-to="{ el: '#home' }">
+          to="/">
           <v-list-tile-action>
             <v-icon>home</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>Dryco</v-list-tile-content>
         </v-list-tile>
-        <v-list-tile
-          v-scroll-to="{ el: '#about', offset: -45 }"
-          to="/">
-          <v-list-tile-action>
-            <v-icon></v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>Despre noi</v-list-tile-content>
-        </v-list-tile>
-        <v-list-tile
-          v-scroll-to="{ el: '#our-products', offset: -45 }"
-          to="/">
-          <v-list-tile-action>
-            <v-icon></v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>Produse</v-list-tile-content>
-        </v-list-tile>
-        <v-list-tile
-          v-scroll-to="{ el: '#contact', offset: -45 }"
-          to="/">
-          <v-list-tile-action>
-            <v-icon></v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>Contacteaza-Ne</v-list-tile-content>
-        </v-list-tile>
-        <v-list-tile
-          v-scroll-to="{ el: '#faq', offset: -45 }"
-          to="/">
-          <v-list-tile-action>
-            <v-icon></v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>Intrebari frecvente</v-list-tile-content>
-        </v-list-tile>
+        <v-list v-if="this.$route.path==='/'">
+          <v-list-tile
+            to="/"
+            v-scroll-to="{ el: '#about', offset: -45 }">
+            <v-list-tile-action>
+              <v-icon></v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>Despre noi</v-list-tile-content>
+          </v-list-tile>
+          <v-list-tile
+            to="/"
+            v-scroll-to="{ el: '#our-products', offset: -45 }">
+            <v-list-tile-action>
+              <v-icon></v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>Produse</v-list-tile-content>
+          </v-list-tile>
+          <v-list-tile
+            to="/"
+            v-scroll-to="{ el: '#contact', offset: -45 }">
+            <v-list-tile-action>
+              <v-icon></v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>Contacteaza-Ne</v-list-tile-content>
+          </v-list-tile>
+          <v-list-tile
+            to="/"
+            v-scroll-to="{ el: '#faq', offset: -45 }">
+            <v-list-tile-action>
+              <v-icon></v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>Intrebari frecvente</v-list-tile-content>
+          </v-list-tile>
+        </v-list>
         <v-list-tile
           to="/shop">
           <v-list-tile-action>
@@ -67,9 +68,8 @@
         </v-toolbar-side-icon>
       </span>
       <v-toolbar-title>
-        <router-link to="/" tag="span" style="cursor: pointer" v-scroll-to="{ el: '#home', offset: -45 }">
+        <router-link to="/" tag="span" style="cursor: pointer">
           <v-avatar
-            :tile="tile"
             :size="100"
             color="grey lighten-4 logo"
           >
@@ -91,30 +91,30 @@
         <v-btn
           flat
           large
-          to="/"
-          v-scroll-to="{ el: '#home', offset: -45}">
+          to="/">
           <v-icon left dark>home</v-icon>
           Dryco
         </v-btn>
-        <v-btn
-          flat
-          small
-          v-scroll-to="{ el: '#about', offset: -60 }">
-          Despre noi
-        </v-btn>
-        <v-btn
-          flat
-          small
-          v-scroll-to="{ el: '#our-products', offset: -60 }">
-          Produse
-        </v-btn>
-        <v-btn
-          flat
-          small
-          v-scroll-to="{ el: '#contact', offset: -60 }">
-          Contacteaza-Ne
-        </v-btn>
-
+        <v-toolbar-items v-if="this.$route.path==='/'">
+          <v-btn
+            flat
+            small
+            v-scroll-to="{ el: '#about', offset: -60 }">
+            Despre noi
+          </v-btn>
+          <v-btn
+            flat
+            small
+            v-scroll-to="{ el: '#our-products', offset: -60 }">
+            Produse
+          </v-btn>
+          <v-btn
+            flat
+            small
+            v-scroll-to="{ el: '#contact', offset: -60 }">
+            Contacteaza-Ne
+          </v-btn>
+        </v-toolbar-items>
         <v-btn
           flat
           large

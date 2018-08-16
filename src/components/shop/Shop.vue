@@ -7,7 +7,7 @@
           <em class="sub-content">Livrare Gratis de la 120 lei!</em>
           <ShoppingCart />
           <div class="mt-1 text-xs-center chk-btn">
-            <v-btn color="success" to="/checkout" :disabled="!itemsQuantity">Plasează Comanda!</v-btn>
+            <v-btn color="success" to="/checkout" :disabled="!itemsQuantity" >Plasează Comanda!</v-btn>
           </div>
         </div>
         <div class="col-sm-12">
