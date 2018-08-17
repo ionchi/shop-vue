@@ -36,11 +36,13 @@
           <v-checkbox
             v-model="checkbox"
             :rules="[v => !!v || 'Este nevoie sa acceptati!']"
-            label="Sunteti de acord cu termenii si conditiile Politici Privacy?"
             required
-          ></v-checkbox>
+          >
+            <span slot="label">Sunteti de acord cu <router-link to="/terms" target="_blank">termenii si conditiile?</router-link></span>
+          </v-checkbox>
 
           <v-btn
+            color="info"
             :disabled="!valid"
             @click="submit"
           >

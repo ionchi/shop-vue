@@ -18,6 +18,12 @@ export const addToCart = ({ commit }, product) => {
   }
 };
 
+export const removeOneFromCart = ({ commit }, product) => {
+  if (product.inventory > 0) {
+    commit('REMOVE_ONE_FROM_CART', product.id);
+  }
+};
+
 export const removeFromCart = ({ commit }, product) => {
   commit('REMOVE_FROM_CART', product);
 };

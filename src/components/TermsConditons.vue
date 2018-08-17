@@ -1,0 +1,104 @@
+<template>
+  <div class="container">
+    <h3 class="display-2">Termeni şi condiţii</h3>
+    <h4>1. Dreptul de copyright</h4>
+    <p>Toate informaţiile existente pe acest site, sunt deţinute de Dryco SRL. Nici un material de pe acest site nu poate fi reprodus parţial, integral sau modificat fără acordul expres exprimat de către ori de titularul acestui drept. Toate drepturile sunt rezervate Dryco SRL.</p>
+    <p>Este strict interzisă folosirea acestui site în scopul distrugerii sau alterării lui, a conţinutului sau a securităţii acestuia ori pentru discreditarea sau hărţuirea Dryco SRL. Dryco SRL va aplica toate măsurile de securitate tehnică şi organizatorică pentru protejarea datelor asupra cărora deţine controlul impotriva oricărei situaţii de manipulare accidentală sau intenţionată, pierdere, distrugere sau împotriva accesului oricărei persoane neautorizate.</p>
+    <h4>2. Informaţii pentru utilizatori (vizitatori)</h4>
+    <p>Ca utilizator (vizitator) aveţi următoarele responsabilităţi:
+      <br>
+      - să furnizaţi date adevărate, exacte şi complete despre dumneavoastră, aşa cum este cerut de formularul de înregistrare atunci când este cazul;
+      <br>
+      - să menţineţi şi înnoiţi, atunci când situaţia cere, datele de înregistrare pentru a fi adevărate, exacte şi complete.
+    </p>
+    <h4>3. Politica de securitate a datelor:</h4>
+    <p>Tuturor persoanelor care transmit catre site-ul www.dryco.md datele lor personale le sunt garantate drepturile în conformitate cu Legea 677/2001, urmând a fi informaţi prin anunţul făcut public de către Dryco SRL prin acest sistem asupra drepturilor lor. Ȋn paginile noastre de internet, Dryco SRL nu va colecta nici un fel de date personale în legătură cu dvs. (de ex. numele dvs., adresa, numărul de telefon sau adresa de e-mail), dacă nu doriţi să ni le furnizaţi (de ex. prin inregistrare), dacă nu vă daţi acordul sau dacă nu este altfel permis prin lege sau alte reglementări de protecţie a datelor dvs. personale. Datele dumneavoastră sunt prelucrate de Dryco SRL potrivit notificării nr. 11697 în conformitate cu Legea nr. 677/2001. Vă puteţi exercita drepturile de acces, de intervenţie şi opoziţie în condiţiile prevăzute de Legea nr. 677/2001 printr-o cerere scrisă, semnată şi datată, trimisă către Dryco SRL.</p>
+    <h5>Scopul utilizării</h5>
+    <p>
+      Ȋn cazul în care ne veţi furniza datele dvs. personale, le vom utiliza în general pentru a răspunde solicitărilor dvs., pentru a procesa informaţiile transmise de dvs. sau pentru a vă intermedia accesul la informaţii specifice sau oferte. De asemenea, pentru a susţine relaţia comercială cu dvs.,
+      <br>
+      - putem salva şi procesa datele personale, pentru a înţelege mai bine nevoile dvs.şi cum ne putem îmbunatăţi produsele şi serviciile; sau
+      <br>
+      - putem utiliza datele dvs. personale pentru a vă contacta în legatură cu o ofertă Dryco SRL care vine în sprijinul nevoilor dvs. sau pentru a efectua sondaje de opinie online pentru a înţelege mai bine necesităţile clienţilor noştri. Dacă alegeţi ca datele dvs. personale să nu fie utilizate pentru a susţine relaţia noastră comercială (în special marketing direct sau cercetare de piaţă), noi vom respecta opţiunea dvs. Nu vindem şi nici nu comercializam în vreun alt fel datele dvs. personale către terţi.
+    </p>
+    <h5>Domeniu de utilizare</h5>
+    <p>
+      Dryco SRL va colecta, utiliza sau dezvălui datele personale furnizate de dvs. online numai pentru scopurile indicate, cu excepţia cazului în care comunicarea datelor:
+      <br>
+      - se referă la utilizarea datelor personale pentru orice scop adiţional care se referă direct la scopul original pentru care datele personale au fost colectate,
+      <br>
+      - este necesară pentru a pregăti, negocia sau derula un contract cu dvs.,
+      <br>
+      - este solicitată prin lege sau de autorităţile guvernamentale sau juridice competente,
+      <br>
+      - este necesară pentru a stabili sau pentru a apăra un drept legal,
+      <br>
+      - este necesară pentru a preveni frauda sau alte activităţi ilegale
+    </p>
+    <h5>Copiii</h5>
+    <p>
+      Dryco SRL nu va colecta în mod conştient date personale de la copii fără acordul prealabil al părinţilor, dacă acest lucru este solicitat de legea aplicabilă. Vom utiliza sau face cunoscute date personale despre un copil în  măsura permisă de lege, pentru a obţine acordul părintilor, conform legilor şi reglementarilor locale sau pentru a proteja un copil.
+    </p>
+    <p>
+      Pentru a proteja datele dvs. personale de distrugerea accidentală sau ilegală, de pierderea sau alterarea acestora si de accesul unor persoane neautorizate, Dryco SRL utilizează măsuri de securitate tehnice şi organizatorice.
+    </p>
+    <p>
+      La cererea scrisă a persoanelor ale căror date sunt prelucrate sau urmează a fi prelucrată, datată şi semnată, expediată pe adresa companiei, Dryco SRL se obligă:
+      <br>
+      - să îi confirme solicitantului dacă prelucrează sau nu date personale, în mod gratuit, pentru o solicitare pe an;
+      <br>
+      - să rectifice, actualizeze, blocheze, steargă sau transforme în date anonime, în mod gratuit, datele a căror prelucrare nu este conformă dispoziţiilor Legii nr. 677/2001 privind protecţia persoanelor cu privire la prelucrarea datelor cu caracter personal şi libera circulaţie a acestor date;
+      <br>
+      - să înceteze prelucrarea datelor personale ale solicitantului.
+    </p>
+    <h4>4. Retur</h4>
+    <p>Returul produselor sau dreptul de renunţare unilaterala a contractului din partea consumatorului este legiferat de Ordonanţa Guvernului nr.130 din 2000, din care am extras textul dintre ghilimele:</p>
+    <p>
+      Art. 7.
+      <br>
+      "Consumatorul are dreptul de a denunţa unilateral contractul la distanţă, în termen de 14 zile lucrătoare, fără penalităţi şi fără invocarea vreunui motiv."
+      <br>
+      "Singurele costuri care pot cădea în sarcina consumatorului sunt cheltuielile directe de returnare a produselor. Termenul de 14 zile prevăzut pentru exercitarea acestui drept începe să curgă: a) pentru produse, de la data primirii lor de către consumator" - întrucat au fost îndeplinite prevederile art. 4 din Ordonanţă.
+    </p>
+    <p>
+      Art. 8.
+      <br>
+      "Ȋn cazul exercitării dreptului de denunţare unilaterală a contractului de către consumator, comerciantul are obligaţia să ramburseze sumele plătite de consumator fără a-i solicita acestuia cheltuielile aferente rambursării sumelor. Rambursarea sumelor se va face în cel mult 30 de zile de la data denunţării contractului de către consumator".
+    </p>
+    <p>
+      Art. 10.
+      <br>
+      "Consumatorul nu poate denunţa unilateral următoarele tipuri de contracte, cu excepţia cazurilor în care părţile au convenit altfel:
+    </p>
+    <p>
+      b) contracte de furnizare de produse sau servicii al căror preţ depinde de fluctuaţiile cursurilor pieţei financiare care nu pot fi controlate de comerciant;
+      <br>
+      c) contracte de furnizare a unor produse executate după specificaţiile consumatorului sau a unor produse distinct personalizate, precum şi a acelora care, prin natura lor, nu pot fi returnate sau care se pot degrada ori deteriora rapid;
+    </p>
+    <p>
+      Cumparatorul care îşi exercită dreptul de denunţare unilaterala a contractului are următoarele obligaţii:
+      <br>
+      - Produsele vor fi expediate cu componentele sau accesoriile primite la cumpărare, în ambalajul original, în perfecta stare de funcţionare.
+      <br>
+      - Toate obiectele trebuie să aibă aspectul identic cu cel avut la primirea lor şi după caz, să aibă sigiliile intacte sau să nu prezinte urme care să ateste operaţiuni interzise de fabricant sau furnizor asupra produselor. Valoarea obligaţiilor băneşti ale furnizorilor faţă de clienţi nu poate depăşi valoarea sumelor încasate. Clientul nu poate pretinde nici un fel de daune morale sau materiale peste aceste sume.
+    </p>
+    <p>
+      Pe lângă termenii şi condiţiile care sunt reglementate în politica site-ului, dumneavoastră înţelegeţi şi acceptaţi faptul că Dryco SRL poate culege şi păstra date despre persoanele care vizitează acest site.
+      <br>
+      Aveţi dreptul de a ne cere să ştergem informaţiile referitoare la persoana dumneavoastră contactându-ne.
+    </p>
+    <p>
+      "Termeni şi condiţii" constituie, în întregime, un acord încheiat între dumneavoastra şi Dryco SRL în privinţa utilizării site-ului www.dryco.md.
+    </p>
+  </div>
+</template>
+
+<script>
+  export default {
+    name: 'TermsConditons'
+  };
+</script>
+
+<style scoped>
+
+</style>

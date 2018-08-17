@@ -57,7 +57,14 @@
           to="/shop"
           @click.stop="sidebar = !sidebar">
           <v-list-tile-action>
-            <v-icon>shopping_cart</v-icon>
+            <v-badge right color="success">
+              <span slot="badge">{{itemsQuantity}}</span>
+              <v-icon
+                color="grey lighten-1"
+              >
+                shopping_cart
+              </v-icon>
+            </v-badge>
           </v-list-tile-action>
           <v-list-tile-content>Cumpara</v-list-tile-content>
         </v-list-tile>
@@ -101,7 +108,7 @@
           large
           to="/"
           class="menuBtn"
-          >
+        >
           <v-icon left dark>home</v-icon>
           Dryco
         </v-btn>
@@ -133,9 +140,13 @@
           large
           class="menuBtn"
           to="/shop">
-          <v-icon left dark>shopping_cart</v-icon>
-          Cumpara
+          <v-badge right color="success">
+            <span slot="badge">{{itemsQuantity}}</span>
+            <v-icon left dark>shopping_cart</v-icon>
+            Cumpara
+          </v-badge>
         </v-btn>
+
       </v-toolbar-items>
     </v-toolbar>
 
@@ -152,10 +163,14 @@
         flat
         tile
       >
-        <v-card-title class="teal">
-          <strong class="subheading">Conectează-te cu noi pe rețelele sociale!</strong>
+        <v-card-title class="footer">
+          <div class="footer-menu">
+            <v-btn flat small to="/terms">Termeni si conditii</v-btn>
+            <v-btn flat small to="/personal-data">Date cu caracter personal</v-btn>
+            <v-btn flat small to="/shipping">Livrare</v-btn>
+          </div>
 
-          <v-spacer></v-spacer>
+          <v-spacer class="hidden-xs"></v-spacer>
 
           <v-btn
             class="mx-3"
@@ -177,13 +192,25 @@
           &copy; 2018 — <strong>dryco</strong> 	&nbsp; din 	&nbsp;<span class="fa fa-heart"></span> 	&nbsp;MOLDOVEI
         </v-card-actions>
       </v-card>
+      <cookie-law
+        theme="dark-lime"
+        buttonText="Am intales"
+        message="Acest site utilizează module cookie pentru a vă asigura să beneficiați de cea mai bună experiență pe site-ul nostru.">
+      </cookie-law>
     </v-footer>
   </v-app>
 </template>
 
 <script>
+  import CookieLaw from 'vue-cookie-law'
+  import { mapGetters } from 'vuex'
   export default {
     name: 'App',
+    components: {CookieLaw},
+    computed: {
+      ...mapGetters([
+        'itemsQuantity'
+      ])},
     data () {
       return {
         sidebar: false,
@@ -217,15 +244,16 @@
     margin-top: 50px;
     margin-left: 50px;
   }
-
   @media only screen and (max-width: 600px) {
     .logo {
       margin: 50px auto 0 auto;
     }
   }
-
   .menuBtn {
     text-decoration: none;
+  }
+  .footer {
+    background-color: #333333;
   }
 
 </style>

@@ -2,7 +2,7 @@
   <v-container>
     <v-flex xs12 sm12>
       <div>
-        <h3 class="titleChk">Comanda</h3>
+        <h3 class="titleChk text-xs-center">Comanda</h3>
       </div>
     </v-flex>
     <v-layout justify-center row fill-height>

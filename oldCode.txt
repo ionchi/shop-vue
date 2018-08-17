@@ -1,0 +1,48 @@
+ CartSummary:
+
+ <ul class="list-group my-2" >
+      <li class="list-group-item">
+        Subtotal: {{(total - shipping) | formatMoney}}
+      </li>
+
+      <li class="list-group-item">
+        Livrare:
+        <span v-if="!freeShip"> {{shipping | formatMoney}}</span>
+        <em v-if="freeShip"> Gratuit</em>
+      </li>
+
+      <li class="list-group-item">
+        <strong>Total:</strong>
+        <strong v-if="!totalDiscount"> {{total | formatMoney}}</strong>
+        <span v-if="totalDiscount">
+          <strong> {{totalWithDiscount | formatMoney}}</strong>
+        </span>
+      </li>
+    </ul>
+
+
+main section:
+
+    <section id="home">
+      <v-parallax :src="require('../assets/plum-tree.png')"  height="600">
+
+        <v-layout
+          column
+          align-center
+          justify-center
+          class="white--text"
+        >
+
+          <h1 class="content mb-2 display-1 text-xs-center">Fructe ecologice
+            direct de la producător!</h1>
+          <v-btn
+            class="blue lighten-2 mt-5"
+            dark
+            large
+            to="/shop"
+          >
+            Cumpară
+          </v-btn>
+        </v-layout>
+      </v-parallax>
+    </section>

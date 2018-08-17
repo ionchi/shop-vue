@@ -10,12 +10,11 @@ import store from './store'
 import 'vuetify/dist/vuetify.min.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
-import Flickity from 'vue-flickity'
+
 
 Vue.use(Vuetify);
 Vue.use(BootstrapVue);
 Vue.use(VueScrollTo);
-Vue.use(Flickity);
 Vue.config.productionTip = false;
 
 Vue.filter('formatMoney', function(val){

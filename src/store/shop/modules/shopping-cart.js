@@ -19,6 +19,17 @@ const mutations = {
     }
   },
 
+  REMOVE_ONE_FROM_CART (state, productId) {
+    const record = state.added.find(product => product.id === productId);
+
+    if (record && record.quantity===1) {
+      const index = state.added.findIndex(added => added.id === productId);
+      state.added.splice(index, 1);
+    } else {
+      record.quantity--;
+    }
+  },
+
   REMOVE_FROM_CART (state, item) {
     const index = state.added.findIndex(added => added.id === item.id);
     state.added.splice(index, 1);

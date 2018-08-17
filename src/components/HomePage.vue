@@ -1,25 +1,26 @@
 <template>
   <div>
     <section id="home">
-      <v-parallax :src="require('../assets/plum-tree.png')"  height="600">
+      <div class="center">
         <v-layout
           column
           align-center
           justify-center
           class="white--text"
         >
-          <h1 class="content mb-2 display-1 text-xs-center">Fructe ecologice
-            direct de la producător!</h1>
-          <v-btn
-            class="blue lighten-2 mt-5"
-            dark
-            large
-            to="/shop"
-          >
-            Cumpară
-          </v-btn>
+        <h1 class="display-1 text-xs-center center__text">Fructe ecologice
+          direct de la producător!</h1>
+        <v-btn
+          class="mt-2"
+          color="info"
+          large
+          depressed
+          to="/shop"
+        >
+          Cumpară
+        </v-btn>
         </v-layout>
-      </v-parallax>
+      </div>
     </section>
 
     <section id="about">
@@ -44,7 +45,8 @@
                   class="white--text"
                 >
                   <v-btn
-                    class="blue lighten-2 mt-2"
+                    class="mt-2"
+                    color="info"
                     dark
                     large
                     to="/"
@@ -73,7 +75,6 @@
 
     <section id="how-we-work">
       <v-layout
-
         wrap
         class="my-2"
         align-center
@@ -290,4 +291,30 @@
   #services .service-item:hover .headline{top:25px;color:#2196f3;}
   #services .text{width:100%;padding:0 25px;text-align:center;position:relative;top:30px;color:#757575;transition:all .4s ease-in-out;}
   #services .service-item:hover .text{top:45px;color:#333;}
+
+  .center {
+    display: flex;
+    width: 100vw;
+    height: 50vh;
+    background-color: black;
+    background-image: url('../assets/plum-tree.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .center__text {
+    font-size: 50px;
+    color: #fff;
+    font-weight: 900;
+    text-align: center;
+    border: solid thick #fff;
+    padding: 5px 10px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .center {
+      height: 70vh;
+    }
+  }
 </style>

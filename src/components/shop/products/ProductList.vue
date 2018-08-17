@@ -1,12 +1,13 @@
 <template>
   <div>
-    <h3>Produse</h3>
-
-    <div class="row" v-for="row in productRows" >
-      <div class="col-sm-4" v-for="product in row" >
+    <v-layout
+      align-space-between justify-center row fill-height
+      v-for="row in productRows" :key="row.id"
+    >
+      <v-flex xs10 sm3 v-for="product in row" :key="product.id">
         <Product :product="product" track-by="id" />
-      </div>
-    </div>
+      </v-flex>
+    </v-layout>
   </div>
 </template>
 
