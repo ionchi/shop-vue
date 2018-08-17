@@ -197,12 +197,13 @@
         </v-layout>
       </v-container>
     </section>
-
+    <v-divider></v-divider>
     <Testimonials/>
   </div>
 </template>
 
 <script>
+  import TestimonialsOld from './shared/TestimonialsOld'
   import Testimonials from './shared/Testimonials'
   import ContactForm from './ContactForm'
   import Faq from './Faq'
@@ -210,10 +211,11 @@
   export default {
     name: 'HomePage',
     components: {
-      Testimonials,
+      TestimonialsOld,
       ContactForm,
       Faq,
-      HomeProductList
+      HomeProductList,
+      Testimonials
     }
   };
 </script>
@@ -274,28 +276,18 @@
     background: rgba(204, 204, 204, 0.7);
   }
 
-  .sub-content {
-    color: #000000;
-    padding:5px;
-    position:relative;
-    background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
-    background: rgba(204, 204, 204, 0.7);
-  }
-
   #services{margin:0px auto;padding-bottom:25px;}
   #services .service-list .service-item{display:inline-block;float:left;list-style:none;padding-bottom:50px;position:relative;}
   #services .circle{background:#f1f1f1;width:120px;height:120px;transform:scale(1);border-radius:50em;margin:20px auto 0 auto;transition:all .4s ease-in-out;border:2px solid transparent;}
   #services:hover .circle{}
   #services .circle:after{content:"";display:block;border-radius:50em;width:100%;height:100%;border:2px solid #b2b2b2;margin:-2px 0px 0px -2px;transition:all .4s ease-in-out;}
-  #services .service-item:hover .circle:after{content:"";display:block;border-radius:50em;width:125%;height:125%;border:2px solid #001044;margin:-17px 0px 0px -17px;transition:all .4s ease-in-out;}
-  #services i.fa{color:#9e9e9e;font-size:40px;position:absolute;top:38px;left:37px;transition:all .4s ease-in-out;}
-  #services i.fa-euro{left:43px;}
-  #services i.fa-car{left:33px;}
-  #services .service-item:hover i.fa{color:#001044;}
-  #services .headline{width:100%;padding:0 25px;text-align:center;position:relative;top:10px;text-transform:uppercase;font-weight:bold;font-size:19px;color:#9e9e9e;transition:all .4s ease-in-out;}
+  #services .service-item:hover .circle:after{content:"";display:block;border-radius:50em;width:125%;height:125%;border:2px solid #2196f3;margin:-17px 0px 0px -17px;transition:all .4s ease-in-out;}
+  #services i.fa{color:#757575;font-size:40px;position:absolute;top:38px;left:37px;transition:all .4s ease-in-out;}
+  #services .service-item:hover i.fa{color:#2196f3;}
+  #services .headline{width:100%;padding:0 25px;text-align:center;position:relative;top:10px;text-transform:uppercase;font-weight:bold;font-size:19px;color:#757575;transition:all .4s ease-in-out;}
   #services .headline:after{content:"";background:#9e9e9e;width:40px;height:2px;position:absolute;display:block;left:50%;bottom:-10px;margin-left:-20px;transition:all .4s ease-in-out;}
-  #services .service-item:hover .headline:after{background:#001044;}
-  #services .service-item:hover .headline{top:25px;color:#001044;}
-  #services .text{width:100%;padding:0 25px;text-align:center;position:relative;top:30px;color:#9e9e9e;transition:all .4s ease-in-out;}
+  #services .service-item:hover .headline:after{background:#2196f3;}
+  #services .service-item:hover .headline{top:25px;color:#2196f3;}
+  #services .text{width:100%;padding:0 25px;text-align:center;position:relative;top:30px;color:#757575;transition:all .4s ease-in-out;}
   #services .service-item:hover .text{top:45px;color:#333;}
 </style>

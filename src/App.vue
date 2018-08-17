@@ -7,6 +7,7 @@
       <v-list>
         <v-list-tile
           to="/"
+          class="menuBtn"
           @click.stop="sidebar = !sidebar">
           <v-list-tile-action>
             <v-icon>home</v-icon>
@@ -16,6 +17,7 @@
         <v-list v-if="this.$route.path==='/'">
           <v-list-tile
             to="/"
+            class="menuBtn"
             v-scroll-to="{ el: '#about', offset: -45 }"
             @click.stop="sidebar = !sidebar">
             <v-list-tile-action>
@@ -61,7 +63,7 @@
         </v-list-tile>
       </v-list>
       <div class="phoneNrPhone">
-        <v-btn icon href="tel:060362829">
+        <v-btn icon href="tel:060362829" class="menuBtn">
           <v-icon>phone</v-icon>
           &nbsp; 060 36 28 29
         </v-btn>
@@ -87,7 +89,7 @@
         </router-link>
       </v-toolbar-title>
       <div class="phoneNr hidden-sm-and-down">
-        <v-btn icon href="tel:060362829">
+        <v-btn icon href="tel:060362829" class="menuBtn">
           <v-icon>phone</v-icon>
           &nbsp; 060 36 28 29
         </v-btn>
@@ -97,7 +99,9 @@
         <v-btn
           flat
           large
-          to="/">
+          to="/"
+          class="menuBtn"
+          >
           <v-icon left dark>home</v-icon>
           Dryco
         </v-btn>
@@ -105,18 +109,21 @@
           <v-btn
             flat
             small
+            class="menuBtn"
             v-scroll-to="{ el: '#about', offset: -60 }">
             Despre noi
           </v-btn>
           <v-btn
             flat
             small
+            class="menuBtn"
             v-scroll-to="{ el: '#our-products', offset: -60 }">
             Produse
           </v-btn>
           <v-btn
             flat
             small
+            class="menuBtn"
             v-scroll-to="{ el: '#contact', offset: -60 }">
             Contacteaza-Ne
           </v-btn>
@@ -124,6 +131,7 @@
         <v-btn
           flat
           large
+          class="menuBtn"
           to="/shop">
           <v-icon left dark>shopping_cart</v-icon>
           Cumpara
@@ -215,4 +223,9 @@
       margin: 50px auto 0 auto;
     }
   }
+
+  .menuBtn {
+    text-decoration: none;
+  }
+
 </style>

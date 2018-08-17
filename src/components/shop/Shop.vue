@@ -15,6 +15,7 @@
         </div>
       </div>
     </div>
+    <v-divider></v-divider>
     <Testimonials/>
   </div>
 </template>
