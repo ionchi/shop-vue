@@ -1,8 +1,8 @@
 {
-  "name": "my-project",
+  "name": "vue-shop",
   "version": "1.0.0",
-  "description": "A Vue.js project",
-  "author": "Matheus Azzi <matheuslazzi@gmail.com>",
+  "description": "A Vue.js shop project",
+  "author": "Ion Chiriac <ion.chiriac@live.com>",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",

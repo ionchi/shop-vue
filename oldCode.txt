@@ -46,3 +46,49 @@ main section:
         </v-layout>
       </v-parallax>
     </section>
+
+footer:
+<v-footer
+      dark
+      height="auto"
+    >
+      <v-card
+        class="flex"
+        flat
+        tile
+      >
+        <v-card-title class="footer">
+          <div class="footer-menu">
+            <v-btn flat small to="/terms">Termeni si conditii</v-btn>
+            <v-btn flat small to="/personal-data">Date cu caracter personal</v-btn>
+            <v-btn flat small to="/shipping">Livrare</v-btn>
+          </div>
+
+          <v-spacer class="hidden-xs"></v-spacer>
+
+          <v-btn
+            class="mx-3"
+            dark
+            icon
+          >
+            <i class="fab fa-instagram fa-2x"></i>
+          </v-btn>
+          <v-btn
+            class="mx-3"
+            dark
+            icon
+          >
+            <i class="fab fa-facebook fa-2x"></i>
+          </v-btn>
+        </v-card-title>
+
+        <v-card-actions class="dark-green darken-3 justify-center">
+          &copy; 2018 — <strong>dryco</strong> 	&nbsp; din 	&nbsp;<span class="fa fa-heart"></span> 	&nbsp;MOLDOVEI
+        </v-card-actions>
+      </v-card>
+      <cookie-law
+        theme="dark-lime"
+        buttonText="Am intales"
+        message="Acest site utilizează module cookie pentru a vă asigura să beneficiați de cea mai bună experiență pe site-ul nostru.">
+      </cookie-law>
+    </v-footer>

@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="container">
     <p>Bla bla bla date cu caracter personal</p>
   </v-container>
 </template>
@@ -11,5 +11,7 @@
 </script>
 
 <style scoped>
-
+  .container {
+    margin-top: 30px;
+  }
 </style>

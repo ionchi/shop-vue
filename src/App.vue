@@ -58,7 +58,7 @@
           @click.stop="sidebar = !sidebar">
           <v-list-tile-action>
             <v-badge right color="success">
-              <span slot="badge">{{itemsQuantity}}</span>
+              <span v-if="itemsQuantity!==0" slot="badge">{{itemsQuantity}}</span>
               <v-icon
                 color="grey lighten-1"
               >
@@ -141,7 +141,7 @@
           class="menuBtn"
           to="/shop">
           <v-badge right color="success">
-            <span slot="badge">{{itemsQuantity}}</span>
+            <span v-if="itemsQuantity!==0" slot="badge">{{itemsQuantity}}</span>
             <v-icon left dark>shopping_cart</v-icon>
             Cumpara
           </v-badge>
@@ -154,50 +154,30 @@
       <router-view></router-view>
     </v-content>
 
-    <v-footer
-      dark
-      height="auto"
-    >
-      <v-card
-        class="flex"
-        flat
-        tile
-      >
-        <v-card-title class="footer">
-          <div class="footer-menu">
-            <v-btn flat small to="/terms">Termeni si conditii</v-btn>
-            <v-btn flat small to="/personal-data">Date cu caracter personal</v-btn>
-            <v-btn flat small to="/shipping">Livrare</v-btn>
-          </div>
+    <footer class="flex-rw">
 
-          <v-spacer class="hidden-xs"></v-spacer>
 
-          <v-btn
-            class="mx-3"
-            dark
-            icon
-          >
-            <i class="fab fa-instagram fa-2x"></i>
-          </v-btn>
-          <v-btn
-            class="mx-3"
-            dark
-            icon
-          >
-            <i class="fab fa-facebook fa-2x"></i>
-          </v-btn>
-        </v-card-title>
-
-        <v-card-actions class="dark-green darken-3 justify-center">
-          &copy; 2018 — <strong>dryco</strong> 	&nbsp; din 	&nbsp;<span class="fa fa-heart"></span> 	&nbsp;MOLDOVEI
-        </v-card-actions>
-      </v-card>
-      <cookie-law
-        theme="dark-lime"
-        buttonText="Am intales"
-        message="Acest site utilizează module cookie pentru a vă asigura să beneficiați de cea mai bună experiență pe site-ul nostru.">
-      </cookie-law>
-    </v-footer>
+      <section class="footer-social-section flex-rw">
+    <span class="footer-social-overlap footer-social-connect">
+      Contacteaza <span class="footer-social-small">-</span> ne
+    </span>
+        <span class="footer-social-overlap footer-social-icons-wrapper">
+          <a href="tel:060362829" class="generic-anchor" target="_blank" title="Phone" itemprop="significantLink"><i class="fas fa-phone-square"></i></a>
+          <a href="https://www.facebook.com/" class="generic-anchor" target="_blank" title="Facebook" itemprop="significantLink"><i class="fab fa-facebook"></i></a>
+          <a href="http://instagram.com/" class="generic-anchor" target="_blank" title="Instagram" itemprop="significantLink"><i class="fab fa-instagram"></i></a>
+        </span>
+      </section>
+      <section class="footer-bottom-section flex-rw">
+        <div class="footer-bottom-wrapper">
+          &copy; 2018 — <strong>dryco</strong> din <span class="fa fa-heart"></span> MOLDOVEI
+        </div>
+        <div class="footer-bottom-wrapper">
+          <router-link to="/terms" class="generic-anchor">Termeni si conditii</router-link> |
+          <router-link to="/personal-data" class="generic-anchor">Date cu caracter personal</router-link> |
+          <router-link to="/shipping" class="generic-anchor">Livrare</router-link>
+        </div>
+      </section>
+    </footer>
   </v-app>
 </template>
 
@@ -213,6 +193,8 @@
       ])},
     data () {
       return {
+        text: 'center',
+        icon: 'justify',
         sidebar: false,
         icons: [
           'fab fa-facebook',
@@ -252,8 +234,173 @@
   .menuBtn {
     text-decoration: none;
   }
-  .footer {
-    background-color: #333333;
+
+  .generic-anchor {
+    color: #fff;
+    text-decoration: none;
+  }
+  .generic-anchor:visited {
+    color: #fff;
+  }
+  .generic-anchor:hover {
+    color: #ccc;
+  }
+
+  .flex-rw {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  footer {
+    background: #333;
+    margin-top: auto;
+    width: 100%;
+  }
+
+  .footer-social-section {
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    margin-top: 5px;
+  }
+
+  .footer-social-section::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 10px;
+    border-top: 1px solid #ccc;
+    width: calc(100% - 20px);
+  }
+
+  .footer-social-overlap {
+    position: relative;
+    z-index: 2;
+    background: #333;
+    padding: 0 20px;
+  }
+
+  .footer-social-connect {
+    display: flex;
+    align-items: center;
+    font-size: 2.5em;
+    color: #fff;
+  }
+
+  .footer-social-small {
+    font-size: 0.6em;
+    padding: 0px 20px;
+  }
+
+  .footer-social-overlap > a {
+    font-size: 2em;
+  }
+
+  .footer-social-overlap > a:not(:first-child) {
+    margin-left: 0.38em;
+  }
+
+  .footer-bottom-section {
+    width: 100%;
+    padding: 10px 30px;
+    margin-top: 10px;
+    background: #424242;
+  }
+
+  .footer-bottom-section > div:first-child {
+    margin-right: auto;
+  }
+
+  .footer-bottom-wrapper {
+    color: #fff;
+  }
+
+  .footer-address {
+    display: inline;
+    font-style: normal;
+  }
+
+  @media only screen and (max-width: 768px) {
+
+    .footer-social-connect {
+      font-size: 2.5em;
+    }
+
+    .footer-social-overlap > a {
+      font-size: 2.24em;
+    }
+
+    .footer-bottom-wrapper {
+      font-size: 1.3em;
+    }
+  }
+  @media only screen and (max-width: 568px) {
+
+    .footer-social-section {
+      justify-content: center;
+    }
+
+    .footer-social-section::after {
+      top: 25%;
+    }
+
+    .footer-social-connect {
+      margin-bottom: 10px;
+      padding: 0 10px;
+    }
+
+    .footer-social-overlap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .footer-social-icons-wrapper {
+      width: 100%;
+      padding: 0;
+    }
+
+    .footer-social-overlap > a:not(:first-child) {
+      margin-left: 20px;
+    }
+
+    .footer-bottom-section {
+      padding: 0 5px 10px 5px;
+    }
+
+    .footer-bottom-wrapper {
+      text-align: center;
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+  @media only screen and (max-width: 480px) {
+    .footer-social-overlap > a {
+      margin: auto;
+    }
+
+    .footer-social-overlap > a:not(:first-child) {
+      margin-left: 0;
+    }
+
+    .footer-bottom-rights {
+      display: block;
+    }
+  }
+  @media only screen and (max-width: 320px) {
+
+    .footer-social-connect {
+      font-size: 2.4em;
+    }
+
+    .footer-social-overlap > a {
+      font-size: 2.24em;
+    }
+
+    .footer-bottom-wrapper {
+      font-size: 1.3em;
+    }
   }
 
 </style>
