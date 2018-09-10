@@ -6,8 +6,8 @@
   $name = $data->name;
   $telno = $data->phone;
   $address = $data->address;
-  $unit = $data->unit;
   $block = $data->block;
+  $unit = $data->unit;
   $interphone = $data->interphone;
   $info = $data->info;
   $payment = $data->payment;
@@ -17,49 +17,37 @@
   $cart_subtotal = $data->subtotal;
   $cart_total = $data->total;
   $email_to = $configs->email_to;
+
 /*
+// DB
+
+ $order_id = 1;
 
   $db_host = $configs->host;
   $db_user = $configs->username;
   $db_pass = $configs->pass;
   $db_database = $configs->database;
 
-//DB
-
 $con = mysql_connect($db_host,$db_user,$db_pass);
 if (!$con)
   {
   die('Could not connect: ' . mysql_error());
 }
-mysql_select_db($db_database, $con);
 
-$sql="INSERT INTO orders (Nume, Address, Telefon, Email, ProductOneName, ProductOnePrice, ProductOneQty, ProductTwoName, ProductTwoPrice, ProductTwoQty, ProductThreeName, ProductThreePrice, ProductThreeQty, CartSubtotal, CartShipping, CartTotal)
-VALUES
-('$_POST[Nume]','$_POST[Address]','$_POST[Telefon]','$_POST[Email]','$_POST[ProductOneName]','$_POST[ProductOnePrice]','$_POST[ProductOneQty]','$_POST[ProductTwoName]','$_POST[ProductTwoPrice]','$_POST[ProductTwoQty]','$_POST[ProductThreeName]','$_POST[ProductThreePrice]','$_POST[ProductThreeQty]','$_POST[CartSubtotal]','$_POST[CartShipping]','$_POST[CartTotal]')";
+  foreach ($cartProducts as $value) {
+      $product = $value->title;
+      $product_qty = $value->quantity;
+      $product_price = $value->price;
 
-if (!mysql_query($sql,$con))
-  {
-  die('Error: ' . mysql_error());
+      $sql="INSERT INTO `orders` (order_id, nume, telefon, adresa, bloc, scara, interfon, info, tip_plata, email, produs, cantitate, pret_kg, livrare, total)
+      VALUES
+      ('$order_id','$name','$telno','$address','$block','$unit','$interphone','$info','$payment','$email','$product','$product_qty','$product_price','$cart_shipping','$cart_total')";
+
+      if (!mysql_query($sql,$con))
+        {
+        die('Error: ' . mysql_error());
+        }
   }
-
-// Email Submit
-
-  $name = @trim(stripslashes($_POST['Nume']));
-  $address = @trim(stripslashes($_POST['Address']));
-  $telno = @trim(stripslashes($_POST['Telefon']));
-  $email = @trim(stripslashes($_POST['Email']));
-  $product_one_name = @trim(stripslashes($_POST['ProductOneName']));
-  $product_one_price = @trim(stripslashes($_POST['ProductOnePrice']));
-  $product_one_qty = @trim(stripslashes($_POST['ProductOneQty']));
-  $product_two_name = @trim(stripslashes($_POST['ProductTwoName']));
-  $product_two_price = @trim(stripslashes($_POST['ProductTwoPrice']));
-  $product_two_qty = @trim(stripslashes($_POST['ProductTwoQty']));
-  $product_three_name = @trim(stripslashes($_POST['ProductThreeName']));
-  $product_three_price = @trim(stripslashes($_POST['ProductThreePrice']));
-  $product_three_qty = @trim(stripslashes($_POST['ProductThreeQty']));
-  $cart_subtotal = @trim(stripslashes($_POST['CartSubtotal']));
-  $cart_shipping = @trim(stripslashes($_POST['CartShipping']));
-  $cart_total = @trim(stripslashes($_POST['CartTotal']));
 */
 
   $email_from = $email;

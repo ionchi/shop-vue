@@ -158,9 +158,6 @@
 
 
       <section class="footer-social-section flex-rw">
-    <span class="footer-social-overlap footer-social-connect">
-      Contacteaza <span class="footer-social-small">-</span> ne
-    </span>
         <span class="footer-social-overlap footer-social-icons-wrapper">
           <a href="tel:060362829" class="generic-anchor" target="_blank" title="Phone" itemprop="significantLink"><i class="fas fa-phone-square"></i></a>
           <a href="https://www.facebook.com/" class="generic-anchor" target="_blank" title="Facebook" itemprop="significantLink"><i class="fab fa-facebook"></i></a>
@@ -177,6 +174,11 @@
           <router-link to="/shipping" class="generic-anchor">Livrare</router-link>
         </div>
       </section>
+      <cookie-law
+        theme="dark-lime"
+        buttonText="Am intales"
+        message="Acest site utilizează module cookie pentru a vă asigura să beneficiați de cea mai bună experiență pe site-ul nostru.">
+      </cookie-law>
     </footer>
   </v-app>
 </template>
@@ -252,7 +254,7 @@
   }
 
   footer {
-    background: #333;
+    background: #307167;
     margin-top: auto;
     width: 100%;
   }
@@ -278,7 +280,7 @@
   .footer-social-overlap {
     position: relative;
     z-index: 2;
-    background: #333;
+    background: #307167;
     padding: 0 20px;
   }
 
@@ -306,7 +308,7 @@
     width: 100%;
     padding: 10px 30px;
     margin-top: 10px;
-    background: #424242;
+    background: #797D7F;
   }
 
   .footer-bottom-section > div:first-child {
