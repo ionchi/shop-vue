@@ -18,15 +18,14 @@
   $cart_total = $data->total;
   $email_to = $configs->email_to;
 
-/*
 // DB
 
- $order_id = 1;
+ $order_id = uniqid();
 
   $db_host = $configs->host;
   $db_user = $configs->username;
   $db_pass = $configs->pass;
-  $db_database = $configs->database;
+  $db_name = $configs->database;
 
 $con = mysql_connect($db_host,$db_user,$db_pass);
 if (!$con)
@@ -34,12 +33,14 @@ if (!$con)
   die('Could not connect: ' . mysql_error());
 }
 
+$db_database = mysql_select_db($db_name, $con);
+
   foreach ($cartProducts as $value) {
       $product = $value->title;
       $product_qty = $value->quantity;
       $product_price = $value->price;
 
-      $sql="INSERT INTO `orders` (order_id, nume, telefon, adresa, bloc, scara, interfon, info, tip_plata, email, produs, cantitate, pret_kg, livrare, total)
+      $sql="INSERT INTO orders (order_id, nume, telefon, adresa, bloc, scara, interfon, info, tip_plata, email, produs, cantitate, pret_kg, livrare, total)
       VALUES
       ('$order_id','$name','$telno','$address','$block','$unit','$interphone','$info','$payment','$email','$product','$product_qty','$product_price','$cart_shipping','$cart_total')";
 
@@ -48,7 +49,6 @@ if (!$con)
         die('Error: ' . mysql_error());
         }
   }
-*/
 
   $email_from = $email;
 
