@@ -123,6 +123,7 @@
     methods: {
       submit () {
         if (this.$refs.form.validate()) {
+          this.loader='loading';
           // Native form submission is not yet supported
           axios.post('../api/sendemail.php', {
             name: this.name,
@@ -133,7 +134,6 @@
           })
             .then(response => {
               this.dialog = true;
-              this.loader='loading';
               this.$refs.form.reset();
             })
             .catch(function (error) {
