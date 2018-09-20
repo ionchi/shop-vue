@@ -29,7 +29,7 @@
           <v-textarea
             v-model="message"
             :rules="messageRules"
-            label="Mesag"
+            label="Mesag*"
             hint="Mesajul dvs"
             required
           ></v-textarea>
@@ -43,6 +43,7 @@
 
           <v-btn
             color="info"
+            :loading="loading"
             :disabled="!valid"
             @click="submit"
           >
@@ -85,6 +86,8 @@
   export default {
     name: 'ContactForm',
     data: () => ({
+      loader: null,
+      loading: false,
       dialog: false,
       valid: true,
       name: '',
@@ -102,7 +105,7 @@
         value => {
           const phonePattern = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{2,6}$/im; // (123)456-7890, 1234567890, +31636363634...
           if (value) var digits = value.replace(/\s/g, '');
-          return phonePattern.test(digits) || 'Numar invalid';
+          return phonePattern.test(digits) || value==='' || value === undefined || 'Numar invalid';
         }
       ],
       topic: null,
@@ -130,6 +133,7 @@
           })
             .then(response => {
               this.dialog = true;
+              this.loader='loading';
               this.$refs.form.reset();
             })
             .catch(function (error) {
@@ -139,6 +143,16 @@
       },
       clear () {
         this.$refs.form.reset();
+      }
+    },
+    watch: {
+      loader () {
+        const l = this.loader;
+        this[l] = !this[l];
+
+        setTimeout(() => (this[l] = false), 3000);
+
+        this.loader = null;
       }
     }
   }

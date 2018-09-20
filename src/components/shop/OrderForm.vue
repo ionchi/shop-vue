@@ -68,6 +68,7 @@
             </v-flex>
             <v-flex xs11 sm11>
               <v-btn
+                :loading="loading"
                 :disabled="!valid"
                 @click="submit"
               >
@@ -123,6 +124,8 @@
     },
     data() {
       return {
+        loader: null,
+        loading: false,
         dialog: false,
         valid: true,
         name: '',
@@ -174,6 +177,7 @@
           })
             .then(response => {
               this.dialog = true;
+              this.loader='loading';
               this.$refs.form.reset();
             })
             .catch(function (error) {
@@ -188,6 +192,16 @@
       redirectHome () {
         this.dialog = false;
         window.location = "/";
+      }
+    },
+    watch: {
+      loader () {
+        const l = this.loader;
+        this[l] = !this[l];
+
+        setTimeout(() => (this[l] = false), 3000);
+
+        this.loader = null;
       }
     }
   };

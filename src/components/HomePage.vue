@@ -8,8 +8,19 @@
           justify-center
           class="white--text"
         >
-        <h1 class="display-1 text-xs-center center__text">Fructe ecologice
-          direct de la producător!</h1>
+          <vue-typer
+            text='Fructe ecologice direct de la producător!'
+            :repeat='Infinity'
+            initial-action='typing'
+            :pre-type-delay='70'
+            :type-delay='70'
+            :pre-erase-delay='2000'
+            :erase-delay='250'
+            erase-style='select-all'
+            :erase-on-complete='false'
+            caret-animation='smooth'
+            class="text-xs-center center__text"
+          ></vue-typer>
         <v-btn
           class="mt-2"
           color="info"
@@ -204,6 +215,7 @@
 </template>
 
 <script>
+  import { VueTyper } from 'vue-typer'
   import TestimonialsOld from './shared/TestimonialsOld'
   import Testimonials from './shared/Testimonials'
   import ContactForm from './ContactForm'
@@ -212,6 +224,7 @@
   export default {
     name: 'HomePage',
     components: {
+      VueTyper,
       TestimonialsOld,
       ContactForm,
       Faq,
@@ -296,7 +309,6 @@
     display: flex;
     width: 100vw;
     height: 50vh;
-    background-color: black;
     background-image: url('../assets/plum-tree.png');
     background-repeat: no-repeat;
     background-position: center;
@@ -304,17 +316,33 @@
   }
 
   .center__text {
-    font-size: 50px;
-    color: #fff;
-    font-weight: 900;
-    text-align: center;
-    border: solid thick #fff;
+    font-size: 40px;
     padding: 5px 10px;
   }
+</style>
 
-  @media only screen and (max-width: 600px) {
-    .center {
-      height: 70vh;
-    }
+<style>
+  vue-typer {
+    white-space: pre;
   }
+
+  .vue-typer .custom.char.typed {
+    color: #fff;
+  }
+  .vue-typer .custom.char.selected {
+    color: #000;
+  }
+
+  .vue-typer .custom.caret.typing {
+    background-color: #fff;
+  }
+
+  .vue-typer .custom.caret {
+    background-color: #000;
+  }
+
+  .vue-typer .custom.caret.idle.pre-erase {
+    background-color: #fff;
+  }
+
 </style>
