@@ -7,7 +7,7 @@
     </v-flex>
     <v-layout justify-center row fill-height>
       <v-flex xs11 sm5 class="my-4">
-        <ShoppingCart />
+        <ShoppingCartCheckout />
       </v-flex>
       <v-flex xs12 sm7>
         <OrderForm/>
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-  import ShoppingCart from './shopping-cart/ShoppingCart'
+  import ShoppingCartCheckout from './shopping-cart/ShoppingCartCheckout'
   import OrderForm from './OrderForm'
   import store from '../../store'
 
@@ -25,7 +25,7 @@
     name: 'Checkout',
     components: {
       OrderForm,
-      ShoppingCart
+      ShoppingCartCheckout
     },
     beforeRouteEnter (to, from, next) {
       if (store.getters.itemsQuantity > 0) next();

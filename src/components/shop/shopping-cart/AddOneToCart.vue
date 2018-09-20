@@ -1,5 +1,5 @@
 <template>
-  <v-btn fab dark small color="info" @click="addToCart(product)"><v-icon dark>add</v-icon></v-btn>
+  <v-btn fab dark small color="success" @click="addToCart(product)"><v-icon dark>add</v-icon></v-btn>
 </template>
 
 <script>

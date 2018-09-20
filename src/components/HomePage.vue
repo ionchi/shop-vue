@@ -9,14 +9,14 @@
           class="white--text"
         >
           <vue-typer
-            text='Fructe ecologice direct de la producător!'
+            :text='["Fructe ecologice direct de la producător!","Livrare la domiciliu!"]'
             :repeat='Infinity'
             initial-action='typing'
             :pre-type-delay='70'
             :type-delay='70'
             :pre-erase-delay='2000'
             :erase-delay='250'
-            erase-style='select-all'
+            erase-style='clear'
             :erase-on-complete='false'
             caret-animation='smooth'
             class="text-xs-center center__text"
@@ -46,9 +46,9 @@
             <v-card class="elevation-0 transparent">
               <div class="farm-about-content">
                 <h3 class="headline">Livrăm prune uscate, fără fum, direct la uşa casei tale. Doar la noi găseşti cele mai gustoase, nutritive şi ecologice prune uscate, care se află la un click distanţă de tine!</h3>
-                <h4 class="subheading"><span>1</span>Noi producem şi noi le vindem, fără intermediari!</h4>
-                <h4 class="subheading"><span>2</span>Preţuri accesibile şi deservire la cel mai înalt nivel!</h4>
-                <h4 class="subheading"><span>3</span>Prunele ajung pe masa ta în maximum 24 de ore!</h4>
+                <h4 class="subheading"><span class="number">1</span>Noi producem şi noi le vindem, fără intermediari!</h4>
+                <h4 class="subheading"><span class="number">2</span>Preţuri accesibile şi deservire la cel mai înalt nivel!</h4>
+                <h4 class="subheading"><span class="number">3</span>Prunele ajung pe masa ta în maximum 24 de ore!</h4>
                 <v-layout
                   column
                   align-center
@@ -270,7 +270,7 @@
     margin-bottom: 20px;
     font-size: 18px;
   }
-  .farm-about-content h4 span {
+  .farm-about-content h4 .number {
     background: #333 none repeat scroll 0 0;
     border-radius: 50%;
     color: #fff;
@@ -282,6 +282,7 @@
     width: 50px;
     position: relative;
   }
+
   .content {
     color: #000000;
     padding:15px;
