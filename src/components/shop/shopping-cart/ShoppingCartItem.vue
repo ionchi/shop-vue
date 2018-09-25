@@ -6,25 +6,28 @@
           <div class="media-object rounded thumb"></div>
         </div>
         <div class="media-body align-middle">
-          <strong class="d-block headline">{{item.title}}</strong>
+          <strong class="d-block headline" v-if="this.$i18n.locale==='ro'">{{item.title}}</strong>
+          <strong class="d-block headline" v-else>{{item.titleRu}}</strong>
         </div>
       </v-flex>
       <v-flex xs6 sm3>
         <div class="media-right align-center qty-section">
           <RemoveOneFromCart :product="item" />
-          <span class="qty">{{item.quantity}} kg</span>
+          <span class="qty">{{item.quantity}} {{$t('shop.kg')}}</span>
           <AddOneToCart :product="item" />
         </div>
       </v-flex>
       <v-flex xs8 offset-xs2 sm3 offset-sm0 class="price-section text-xs-center">
         <v-layout row wrap>
           <v-flex xs6>
-            <span class="d-block font-weight-medium">Pret</span>
-            <span class="d-block">{{item.price | formatMoney}}</span>
+            <span class="d-block font-weight-medium">{{$t('shop.price')}}</span>
+            <span class="d-block" v-if="this.$i18n.locale==='ro'">{{item.price | formatMoney}}</span>
+            <span class="d-block" v-else>{{item.price | formatMoneyRu}}</span>
           </v-flex>
           <v-flex xs6>
-            <span class="d-block font-weight-medium">Total</span>
-            <span class="d-block">{{(item.price*item.quantity) | formatMoney}}</span>
+            <span class="d-block font-weight-medium">{{$t('shop.summary.total')}}</span>
+            <span class="d-block" v-if="this.$i18n.locale==='ro'">{{(item.price*item.quantity) | formatMoney}}</span>
+            <span class="d-block" v-else>{{(item.price*item.quantity) | formatMoneyRu}}</span>
           </v-flex>
         </v-layout>
       </v-flex>

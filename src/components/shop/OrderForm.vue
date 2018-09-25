@@ -8,7 +8,7 @@
               <v-text-field
                 v-model="name"
                 :rules="nameRules"
-                label="Nume *"
+                :label="$t('checkout.form.name') + '*'"
                 required
               ></v-text-field>
             </v-flex>
@@ -16,7 +16,7 @@
               <v-text-field
                 v-model="address"
                 :rules="addressRules"
-                label="Adresa *"
+                :label="$t('checkout.form.address') + '*'"
                 :counter="25"
                 required
               ></v-text-field>
@@ -24,26 +24,26 @@
             <v-flex xs11 sm3>
               <v-text-field
                 v-model="block"
-                label="Bloc"
+                :label="$t('checkout.form.block')"
               ></v-text-field>
             </v-flex>
             <v-flex xs11 sm3 offset-sm1>
               <v-text-field
                 v-model="unit"
-                label="Scara"
+                :label="$t('checkout.form.unit')"
               ></v-text-field>
             </v-flex>
             <v-flex xs11 sm3 offset-sm1>
               <v-text-field
                 v-model="interphone"
-                label="Interfon"
+                :label="$t('checkout.form.interphone')"
               ></v-text-field>
             </v-flex>
             <v-flex xs11 sm11>
               <v-text-field
                 v-model="phone"
                 :rules="phoneRules"
-                label="Telefon *"
+                :label="$t('checkout.form.phone') + '*'"
                 required
               ></v-text-field>
             </v-flex>
@@ -51,19 +51,19 @@
               <v-text-field
                 v-model="email"
                 :rules="emailRules"
-                label="E-mail"
+                :label="$t('checkout.form.email')"
               ></v-text-field>
             </v-flex>
             <v-flex xs11 sm11>
               <v-textarea
                 v-model="info"
-                label="Informatie suplimentara"
+                :label="$t('checkout.form.info')"
               ></v-textarea>
             </v-flex>
             <v-flex xs11 sm11>
               <v-radio-group v-model="payment" row :mandatory="false">
-                <v-radio color="indigo darken-3" label="Plata in numerar" value="numerar"></v-radio>
-                <v-radio color="indigo darken-3" label="Curier card de credit" value="card"></v-radio>
+                <v-radio color="indigo darken-3" :label="$t('checkout.form.payment.cash')" value="numerar"></v-radio>
+                <v-radio color="indigo darken-3" :label="$t('checkout.form.payment.card')" value="card"></v-radio>
               </v-radio-group>
             </v-flex>
             <v-flex xs11 sm11>
@@ -72,9 +72,9 @@
                 :disabled="!valid"
                 @click="submit"
               >
-                Trimite
+                {{$t('checkout.form.sendBtn')}}
               </v-btn>
-              <v-btn @click="clear">Sterge</v-btn>
+              <v-btn @click="clear">{{$t('checkout.form.clearBtn')}}</v-btn>
             </v-flex>
           </v-layout>
         </v-form>
@@ -85,10 +85,10 @@
       max-width="290"
     >
       <v-card>
-        <v-card-title class="headline">Comanda dvs a fost plasata cu succes</v-card-title>
+        <v-card-title class="headline">{{$t('checkout.form.dialog.headline')}}</v-card-title>
 
         <v-card-text>
-          Va multumim! Vă vom contacta în curând...
+          {{$t('checkout.form.dialog.text')}}
         </v-card-text>
 
         <v-card-actions>
@@ -99,7 +99,7 @@
             flat="flat"
             @click="redirectHome()"
           >
-            Închide
+            {{$t('checkout.form.dialog.closeBtn')}}
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -120,7 +120,32 @@
         'shipping',
         'total',
         'cartProducts'
-      ])
+      ]),
+      nameRules: function () {
+        return [
+          v => !!v || this.$tc('checkout.form.nameRule')
+        ];
+      },
+      emailRules: function () {
+        return [
+          v => (/.+@.+/.test(v) || v==='' || v === " " || v === undefined) || this.$tc('checkout.form.emailRule')
+        ];
+      },
+      phoneRules: function () {
+        return [
+          value => {
+            const phonePattern = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{2,6}$/im; // (123)456-7890, 1234567890, +31636363634...
+            if (value) var digits = value.replace(/\s/g, '');
+            return phonePattern.test(digits) || this.$tc('checkout.form.phoneRule');
+          }
+        ];
+      },
+      addressRules: function () {
+        return [
+          v => !!v || this.$tc('checkout.form.addressRule1'),
+          v => (v && v.length <= 25) || this.$tc('checkout.form.addressRule2')
+        ];
+      }
     },
     data() {
       return {
@@ -129,26 +154,9 @@
         dialog: false,
         valid: true,
         name: '',
-        nameRules: [
-          v => !!v || 'Este nevoie de nume',
-        ],
         email: '',
-        emailRules: [
-          v => (/.+@.+/.test(v) || v==='' || v === " " || v === undefined) || 'Adresa e-mail trebuie sa fie valida',
-        ],
         phone: '',
-        phoneRules: [
-          value => {
-            const phonePattern = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{2,6}$/im; // (123)456-7890, 1234567890, +31636363634...
-            if (value) var digits = value.replace(/\s/g, '');
-            return phonePattern.test(digits) || 'Numar invalid';
-          }
-        ],
         address: '',
-        addressRules: [
-          v => !!v || 'Este nevoie de adresa',
-          v => (v && v.length <= 25) || 'Numele trebuie sa aiba mai putin de 25 de litere'
-        ],
         unit: '',
         block: '',
         interphone: '',
@@ -191,7 +199,7 @@
       },
       redirectHome () {
         this.dialog = false;
-        window.location = "/";
+        window.location = "/"+this.$i18n.locale;
       }
     },
     watch: {

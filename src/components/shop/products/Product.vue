@@ -3,8 +3,10 @@
     <div :class="product.image_class"></div>
 
     <div class="card-block">
-      <h5 class="card-title">{{product.title}}</h5>
-      <p class="card-text">{{product.price | formatMoney}}</p>
+      <h5 class="card-title" v-if="this.$i18n.locale==='ro'">{{product.title}}</h5>
+      <h5 class="card-title" v-else>{{product.titleRu}}</h5>
+      <p class="card-text" v-if="this.$i18n.locale==='ro'">{{product.price | formatMoney}}</p>
+      <p class="card-text" v-else>{{product.price | formatMoneyRu}}</p>
       <AddToCart :product="product" />
     </div>
   </div>

@@ -1,5 +1,5 @@
 <template>
-  <v-btn color="info" :disabled="!product.inventory" @click="addToCart(product)">Adaugă în Coș!</v-btn>
+  <v-btn color="info" :disabled="!product.inventory" @click="addToCart(product)">{{$t('homePage.ourProductsSection.addToCartBtn')}}</v-btn>
 </template>
 
 <script>

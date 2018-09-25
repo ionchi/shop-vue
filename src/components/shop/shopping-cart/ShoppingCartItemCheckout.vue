@@ -4,9 +4,16 @@
       <div class="media-object rounded thumb"></div>
     </div>
     <div class="media-body">
-      <strong class="d-block">{{item.title}}</strong>
-      <span>Pret: {{item.price | formatMoney}}/kg</span> <strong> | </strong>
-      <span>{{item.quantity}} kg - {{(item.price*item.quantity) | formatMoney}}</span>
+      <strong class="d-block" v-if="this.$i18n.locale==='ro'">{{item.title}}</strong>
+      <strong class="d-block" v-else>{{item.titleRu}}</strong>
+      <span>{{$t('shop.price')}}:
+        <span v-if="this.$i18n.locale==='ro'">{{item.price | formatMoney}}/{{$t('shop.kg')}}</span>
+        <span v-else>{{item.price | formatMoneyRu}}/{{$t('shop.kg')}}</span>
+      </span> <strong> | </strong>
+      <span>{{item.quantity}} {{$t('shop.kg')}} -
+        <span v-if="this.$i18n.locale==='ro'">{{(item.price*item.quantity) | formatMoney}}</span>
+        <span v-else>{{(item.price*item.quantity) | formatMoneyRu}}</span>
+      </span>
     </div>
   </div>
 </template>

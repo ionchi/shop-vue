@@ -4,12 +4,12 @@
       <div class="row mt-2">
         <div class="col-sm-12">
           <div class="text-xs-center titleCart">
-            <h3>Cos</h3>
-            <em class="sub-content">Livrare Gratis de la 120 lei!</em>
+            <h3>{{$t('shop.header')}}</h3>
+            <em class="sub-content">{{$t('shop.subheader')}}</em>
           </div>
           <ShoppingCart />
           <div class="mt-1 text-xs-center chk-btn">
-            <v-btn color="success" to="/checkout" :disabled="!itemsQuantity" >Plasează Comanda!</v-btn>
+            <v-btn color="success" to="/checkout" :disabled="!itemsQuantity" @click.prevent="changeLocaleUrl()">{{$t('shop.orderBtn')}}</v-btn>
           </div>
         </div>
 
@@ -40,6 +40,13 @@
       Testimonials,
       ProductList,
       ShoppingCart
+    },
+    methods: {
+      changeLocaleUrl(newLocale) {
+        if (newLocale!==undefined)
+          this.$i18n.locale = newLocale;
+        window.history.pushState("", "", '/'+this.$i18n.locale + this.$route.path);
+      }
     }
   }
 </script>

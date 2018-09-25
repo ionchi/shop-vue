@@ -1,7 +1,7 @@
 const products = [
-  { 'id': 1, 'title': 'Prune moi', 'price': 40.00, 'inventory': 1000, 'shipping': 30.00, 'image_class': 'product-1', 'description':'Sunt delicioase, nu necesită prelucrare, pot fi utilizate pentru deserturi şi alte delicii culinare.'},
-  { 'id': 2, 'title': 'Prune tari', 'price': 50.00, 'inventory': 1000, 'shipping': 30.00, 'image_class': 'product-2', 'description':'Sunt cele mai sănătoase, bune pentru copii mici şi bunici.' },
-  { 'id': 3, 'title': 'Prune Fără Sâmbure', 'price': 60.00, 'inventory': 1000, 'shipping': 30.00, 'image_class': 'product-3', 'description':'Sunt dulci, ideale pentru a fi consumate la birou, în transport sau la o plimbare în aer liber cu prietenii.' }
+  { 'id': 1, 'title': 'Prune moi', 'titleRu':'Mягкие сливы', 'price': 40.00, 'inventory': 1000, 'shipping': 30.00, 'image_class': 'product-1', 'description':'Sunt delicioase, nu necesită prelucrare, pot fi utilizate pentru deserturi şi alte delicii culinare.', 'descriptionRu': 'Они вкусные, не требуют обработки, могут использоваться для десертов и других кулинарных изысков.'},
+  { 'id': 2, 'title': 'Prune tari', 'titleRu':'Tвердые сливы', 'price': 50.00, 'inventory': 1000, 'shipping': 30.00, 'image_class': 'product-2', 'description':'Sunt cele mai sănătoase, bune pentru copii mici şi bunici.', 'descriptionRu': 'Они самые здоровые, хорошие для маленьких детей и бабушек и дедушек. <br> <br>' },
+  { 'id': 3, 'title': 'Prune Fără Sâmbure', 'titleRu':'Cливы без семян', 'price': 60.00, 'inventory': 1000, 'shipping': 30.00, 'image_class': 'product-3', 'description':'Sunt dulci, ideale pentru a fi consumate la birou, în transport sau la o plimbare în aer liber cu prietenii.', 'descriptionRu': 'Они сладкие, идеально подходят для употребления в офисе, в транспорте или на открытом воздухе с друзьями.' }
 ];
 
 const promotions = [

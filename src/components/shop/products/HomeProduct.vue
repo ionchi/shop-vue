@@ -3,8 +3,10 @@
     <div :class="product.image_class"></div>
 
     <div class="card-block">
-      <h5 class="card-title">{{product.title}}</h5>
-      <p class="card-text">{{product.description}}</p>
+      <h5 class="card-title" v-if="this.$i18n.locale==='ro'">{{product.title}}</h5>
+      <h5 class="card-title" v-else>{{product.titleRu}}</h5>
+      <p class="card-text" v-if="this.$i18n.locale==='ro'">{{product.description}}</p>
+      <p class="card-text" v-else v-html="product.descriptionRu"></p>
       <HomeAddToCart :product="product" />
     </div>
   </div>
@@ -20,6 +22,7 @@
     },
     components: { HomeAddToCart }
   }
+
 </script>
 
 <style scoped>

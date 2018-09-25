@@ -2,23 +2,28 @@
   <div>
 
     <v-layout align-space-between justify-center row fill-height text-xs-center cart-summary>
-      <v-flex xs10 sm3 class="price-section">
-        <div class="headline">Subtotal:</div>
-        <div class="font-weight-light">
+      <v-flex xs11 sm4 class="price-section">
+        <div class="headline">{{$t('shop.summary.subtotal')}}:</div>
+        <div class="font-weight-light" v-if="this.$i18n.locale==='ro'">
           {{(total - shipping) | formatMoney}}
         </div>
-      </v-flex>
-      <v-flex xs10 sm3 class="price-section">
-        <div class="headline">Livrare:</div>
-        <div class="font-weight-light">
-          <span v-if="!freeShip"> {{shipping | formatMoney}}</span>
-          <em v-if="freeShip"> Gratuit</em>
+        <div class="font-weight-light" v-else>
+          {{(total - shipping) | formatMoneyRu}}
         </div>
       </v-flex>
-      <v-flex xs10 sm3 class="price-section">
-        <div class="headline"><strong>Total:</strong></div>
+      <v-flex xs11 sm4 class="price-section">
+        <div class="headline">{{$t('shop.summary.shipping')}}:</div>
         <div class="font-weight-light">
-          <strong v-if="!totalDiscount"> {{total | formatMoney}}</strong>
+          <span v-if="this.$i18n.locale==='ro'"><span v-if="!freeShip"> {{shipping | formatMoney}}</span></span>
+          <span v-else><span v-if="!freeShip"> {{shipping | formatMoneyRu}}</span></span>
+          <em v-if="freeShip"> {{$t('shop.summary.free')}}</em>
+        </div>
+      </v-flex>
+      <v-flex xs11 sm4 class="price-section">
+        <div class="headline"><strong>{{$t('shop.summary.total')}}:</strong></div>
+        <div class="font-weight-light">
+          <span v-if="this.$i18n.locale==='ro'"><strong v-if="!totalDiscount"> {{total | formatMoney}}</strong></span>
+          <span v-else><strong v-if="!totalDiscount"> {{total | formatMoneyRu}}</strong></span>
           <span v-if="totalDiscount">
           <strong> {{totalWithDiscount | formatMoney}}</strong>
         </span>

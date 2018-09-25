@@ -10,13 +10,17 @@ import PersonalData from './components/PersonalData'
 
 Vue.use(Router);
 
+var locale = window.location.pathname.replace(/^\/([^\/]+).*/i,'$1');
+
 export default new Router({
   mode: 'history',
+  base: (locale.trim().length && locale != "/") ? '/' + locale : undefined,
   routes: [
+    // Don't go more than one level in depth [ok /shop; NOT ok /shop/checkout or change changeLocaleUrl funct]
     {
       path: '/',
       name: 'home',
-      component: HomePage
+      component: HomePage,
     },
     {
       path: '/shop',

@@ -7,6 +7,7 @@ import pluralize from 'pluralize'
 import router from './router'
 import App from './App'
 import store from './store'
+import i18n from './lang/lang'
 import 'vuetify/dist/vuetify.min.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -20,11 +21,24 @@ Vue.config.productionTip = false;
 Vue.filter('formatMoney', function(val){
   return accounting.formatMoney(val, { symbol: "lei",  format: "%v %s" }, 2, ".", ",");
 });
+Vue.filter('formatMoneyRu', function(val){
+  return accounting.formatMoney(val, { symbol: "лей",  format: "%v %s" }, 2, ".", ",");
+});
 Vue.filter('pluralize', pluralize);
 
-new Vue({
+router.beforeEach((to, from, next) => {
+  let lang = to.params.lang;
+  if (lang===undefined)
+    lang = i18n.locale;
+  to.params.lang = lang;
+  next();
+});
+
+
+export const app = new Vue({
   el: '#app',
   store,
   router,
+  i18n,
   render: h => h(App)
 });

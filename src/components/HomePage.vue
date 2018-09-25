@@ -9,7 +9,7 @@
           class="white--text"
         >
           <vue-typer
-            :text='["Fructe ecologice direct de la producător!","Livrare la domiciliu!"]'
+            :text='[$t("typer.first"),$t("typer.second")]'
             :repeat='Infinity'
             initial-action='typing'
             :pre-type-delay='70'
@@ -21,15 +21,16 @@
             caret-animation='smooth'
             class="text-xs-center center__text"
           ></vue-typer>
-        <v-btn
-          class="mt-2"
-          color="info"
-          large
-          depressed
-          to="/shop"
-        >
-          Cumpară
-        </v-btn>
+          <v-btn
+            class="mt-2"
+            color="info"
+            large
+            depressed
+            @click.prevent="changeLocaleUrl()"
+            to="/shop"
+          >
+            {{$t("typer.button")}}
+          </v-btn>
         </v-layout>
       </div>
     </section>
@@ -38,17 +39,17 @@
       <v-container grid-list-xl>
         <v-flex xs12 sm12 class="my-3">
           <div class="text-xs-center">
-            <h1 class="display-1">Despre Noi</h1>
+            <h1 class="display-1">{{$t('homePage.aboutSection.title')}}</h1>
           </div>
         </v-flex>
         <v-layout align-center justify-center row fill-height>
           <v-flex xs12 sm5 my-6>
             <v-card class="elevation-0 transparent">
               <div class="farm-about-content">
-                <h3 class="headline">Livrăm prune uscate, fără fum, direct la uşa casei tale. Doar la noi găseşti cele mai gustoase, nutritive şi ecologice prune uscate, care se află la un click distanţă de tine!</h3>
-                <h4 class="subheading"><span class="number">1</span>Noi producem şi noi le vindem, fără intermediari!</h4>
-                <h4 class="subheading"><span class="number">2</span>Preţuri accesibile şi deservire la cel mai înalt nivel!</h4>
-                <h4 class="subheading"><span class="number">3</span>Prunele ajung pe masa ta în maximum 24 de ore!</h4>
+                <h3 class="headline">{{$t('homePage.aboutSection.headline')}}</h3>
+                <h4 class="subheading"><span class="number">1</span>{{$t('homePage.aboutSection.pointOne')}}</h4>
+                <h4 class="subheading"><span class="number">2</span>{{$t('homePage.aboutSection.pointTwo')}}</h4>
+                <h4 class="subheading"><span class="number">3</span>{{$t('homePage.aboutSection.pointThree')}}</h4>
                 <v-layout
                   column
                   align-center
@@ -60,10 +61,11 @@
                     color="info"
                     dark
                     large
+                    @click.prevent="changeLocaleUrl()"
                     to="/"
                     v-scroll-to="{ el: '#contact', offset: -45 }"
                   >
-                    Contactează-ne
+                    {{$t('homePage.aboutSection.contactUsBtn')}}
                   </v-btn>
                 </v-layout>
               </div>
@@ -92,7 +94,7 @@
       >
         <v-flex xs12 sm12 class="my-3">
           <div class="text-xs-center">
-            <h1 class="display-1">Cum lucrăm</h1>
+            <h1 class="display-1">{{$t('homePage.howWeWorkSection.title')}}</h1>
           </div>
         </v-flex>
         <v-flex xs12 class="text-xs-center">
@@ -100,30 +102,30 @@
             <div class="row clearfix service-list">
               <div class="col-xs-12 col-sm-12 col-md-3 service-item">
                 <div class="circle"><i class="fa fa-cart-plus"></i></div>
-                <div class="headline">1. COMANDA</div>
+                <div class="headline">{{$t('homePage.howWeWorkSection.stepOne.title')}}</div>
                 <div class="text">
-                  După un calcul exact, în baza unui plan concret de arhitectură, comandați produsul dorit.
+                  {{$t('homePage.howWeWorkSection.stepOne.message')}}
                 </div>
               </div>
               <div class="col-xs-12 col-sm-12 col-md-3 service-item">
                 <div class="circle"><i class="fa fa-check-double"></i></div>
-                <div class="headline">2. CONFIRMAREA</div>
+                <div class="headline">{{$t('homePage.howWeWorkSection.stepTwo.title')}}</div>
                 <div class="text">
-                  Ulterior, un operator vă va contacta pentru stabilirea detaliilor necesare și confirmarea comenzii.
+                  {{$t('homePage.howWeWorkSection.stepTwo.message')}}
                 </div>
               </div>
               <div class="col-xs-12 col-sm-12 col-md-3 service-item">
                 <div class="circle"><i class="fa fa-shipping-fast"></i></div>
-                <div class="headline">3. LIVRAREA</div>
+                <div class="headline">{{$t('homePage.howWeWorkSection.stepThree.title')}}</div>
                 <div class="text">
-                  Livrarea produsului se va desfășura în decurs de 2-3 zile, de la confirmarea comenzii.
+                  {{$t('homePage.howWeWorkSection.stepThree.message')}}
                 </div>
               </div>
               <div class="col-xs-12 col-sm-12 col-md-3 service-item">
                 <div class="circle"><i class="fa fa-hand-holding-usd"></i></div>
-                <div class="headline">4. ACHITAREA</div>
+                <div class="headline">{{$t('homePage.howWeWorkSection.stepFour.title')}}</div>
                 <div class="text">
-                  Plata produselor se va face ramburs, în momentul livrării.
+                  {{$t('homePage.howWeWorkSection.stepFour.message')}}
                 </div>
               </div>
             </div>
@@ -138,7 +140,7 @@
       <v-container id="faq">
         <v-flex xs12 sm12 class="my-3">
           <div class="text-xs-center">
-            <h1 class="display-1">Întrebări Frecvente</h1>
+            <h1 class="display-1">{{$t('homePage.faqSection.title')}}</h1>
           </div>
         </v-flex>
         <v-layout wrap align-center justify-center row fill-height>
@@ -162,7 +164,7 @@
       <v-container>
         <v-flex xs12 sm12 class="my-3">
           <div class="text-xs-center">
-            <h1 class="display-1">Contactează-ne</h1>
+            <h1 class="display-1">{{$t('homePage.contactSection.title')}}</h1>
           </div>
         </v-flex>
         <v-layout align-center justify-center row fill-height>
@@ -181,8 +183,8 @@
                     <i class="fa fa-map-marker"></i>
                   </div>
                   <div class="contact-content">
-                    <h3>Adresa Noastră</h3>
-                    <p>Alexandru cel Bun 95 <br> Chișinău, Moldova</p>
+                    <h3>{{$t('homePage.contactSection.addressHeader')}}</h3>
+                    <p v-html="$t('homePage.contactSection.address')"></p>
                   </div>
                 </v-list-tile>
                 <v-list-tile class="single-contact">
@@ -190,7 +192,7 @@
                     <i class="fa fa-phone"></i>
                   </div>
                   <div class="contact-content">
-                    <h3>Telefon</h3>
+                    <h3>{{$t('homePage.contactSection.phoneHeader')}}</h3>
                     <p>(+373) 60 362 829</p>
                   </div>
                 </v-list-tile>
@@ -199,7 +201,7 @@
                     <i class="fa fa-envelope"></i>
                   </div>
                   <div class="contact-content">
-                    <h3>Adresa de e-mail</h3>
+                    <h3>{{$t('homePage.contactSection.emailHeader')}}</h3>
                     <p>info@dryco.md</p>
                   </div>
                 </v-list-tile>
@@ -210,6 +212,7 @@
       </v-container>
     </section>
     <v-divider></v-divider>
+
     <Testimonials/>
   </div>
 </template>
@@ -221,6 +224,7 @@
   import ContactForm from './ContactForm'
   import Faq from './Faq'
   import HomeProductList from './shop/products/HomeProductList'
+
   export default {
     name: 'HomePage',
     components: {
@@ -230,6 +234,13 @@
       Faq,
       HomeProductList,
       Testimonials
+    },
+    methods: {
+      changeLocaleUrl(newLocale) {
+        if (newLocale!==undefined)
+          this.$i18n.locale = newLocale;
+        window.history.pushState("", "", '/'+this.$i18n.locale + this.$route.path);
+      }
     }
   };
 </script>

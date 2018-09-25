@@ -31,3 +31,7 @@ export const removeFromCart = ({ commit }, product) => {
 export const toggleCoupon = ({ commit }, coupon) => {
   commit('TOGGLE_COUPON', coupon);
 };
+
+export const setLang = ({commit}, payload) => {
+  commit('SET_LANG', payload);
+};

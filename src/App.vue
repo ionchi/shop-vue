@@ -12,7 +12,7 @@
           <v-list-tile-action>
             <v-icon>home</v-icon>
           </v-list-tile-action>
-          <v-list-tile-content>Dryco</v-list-tile-content>
+          <v-list-tile-content>{{$t("menu.home")}}</v-list-tile-content>
         </v-list-tile>
         <v-list v-if="this.$route.path==='/'">
           <v-list-tile
@@ -23,7 +23,7 @@
             <v-list-tile-action>
               <v-icon></v-icon>
             </v-list-tile-action>
-            <v-list-tile-content>Despre noi</v-list-tile-content>
+            <v-list-tile-content>{{$t("menu.about")}}</v-list-tile-content>
           </v-list-tile>
           <v-list-tile
             to="/"
@@ -32,7 +32,7 @@
             <v-list-tile-action>
               <v-icon></v-icon>
             </v-list-tile-action>
-            <v-list-tile-content>Produse</v-list-tile-content>
+            <v-list-tile-content>{{$t("menu.products")}}</v-list-tile-content>
           </v-list-tile>
           <v-list-tile
             to="/"
@@ -41,7 +41,7 @@
             <v-list-tile-action>
               <v-icon></v-icon>
             </v-list-tile-action>
-            <v-list-tile-content>Intrebari frecvente</v-list-tile-content>
+            <v-list-tile-content>{{$t("menu.faq")}}</v-list-tile-content>
           </v-list-tile>
           <v-list-tile
             to="/"
@@ -50,7 +50,23 @@
             <v-list-tile-action>
               <v-icon></v-icon>
             </v-list-tile-action>
-            <v-list-tile-content>Contacteaza-Ne</v-list-tile-content>
+            <v-list-tile-content>{{$t("menu.contact")}}</v-list-tile-content>
+          </v-list-tile>
+          <v-list-tile
+            @click="setLang('ro')"
+            @click.stop="sidebar = !sidebar">
+            <v-list-tile-action>
+              <v-icon></v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>RO</v-list-tile-content>
+          </v-list-tile>
+          <v-list-tile
+            @click="setLang('ru')"
+            @click.stop="sidebar = !sidebar">
+            <v-list-tile-action>
+              <v-icon></v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>RU</v-list-tile-content>
           </v-list-tile>
         </v-list>
         <v-list-tile
@@ -66,7 +82,7 @@
               </v-icon>
             </v-badge>
           </v-list-tile-action>
-          <v-list-tile-content>Cumpara</v-list-tile-content>
+          <v-list-tile-content>{{$t("menu.shop")}}</v-list-tile-content>
         </v-list-tile>
       </v-list>
       <div class="phoneNrPhone">
@@ -108,9 +124,10 @@
           large
           to="/"
           class="menuBtn"
+          @click.prevent="changeLocaleUrl()"
         >
           <v-icon left dark>home</v-icon>
-          Dryco
+          {{$t("menu.home")}}
         </v-btn>
         <v-toolbar-items v-if="this.$route.path==='/'">
           <v-btn
@@ -118,35 +135,49 @@
             small
             class="menuBtn"
             v-scroll-to="{ el: '#about', offset: -60 }">
-            Despre noi
+            {{$t("menu.about")}}
           </v-btn>
           <v-btn
             flat
             small
             class="menuBtn"
             v-scroll-to="{ el: '#our-products', offset: -60 }">
-            Produse
+            {{$t("menu.products")}}
           </v-btn>
           <v-btn
             flat
             small
             class="menuBtn"
             v-scroll-to="{ el: '#contact', offset: -60 }">
-            Contacteaza-Ne
+            {{$t("menu.contact")}}
           </v-btn>
         </v-toolbar-items>
         <v-btn
           flat
           large
           class="menuBtn"
+          @click.prevent="changeLocaleUrl()"
           to="/shop">
           <v-badge right color="success">
             <span v-if="itemsQuantity!==0" slot="badge">{{itemsQuantity}}</span>
             <v-icon left dark>shopping_cart</v-icon>
-            Cumpara
+            {{$t("menu.shop")}}
           </v-badge>
         </v-btn>
-
+        <v-btn
+          flat
+          large
+          class="menuBtn"
+          @click="setLang('ro')"
+          @click.prevent="changeLocaleUrl('ro')">ro
+        </v-btn>
+        <v-btn
+          flat
+          large
+          class="menuBtn"
+          @click="setLang('ru')"
+          @click.prevent="changeLocaleUrl('ru')">ru
+        </v-btn>
       </v-toolbar-items>
     </v-toolbar>
 
@@ -165,27 +196,28 @@
         </span>
       </section>
       <section class="footer-bottom-section flex-rw">
-        <div class="footer-bottom-wrapper">
-          &copy; 2018 — <strong>dryco</strong> din <span class="fa fa-heart"></span> MOLDOVEI
+        <div class="footer-bottom-wrapper" v-html="$t('footer.copyright')">
         </div>
         <div class="footer-bottom-wrapper">
-          <router-link to="/terms" class="generic-anchor">Termeni si conditii</router-link> |
-          <router-link to="/personal-data" class="generic-anchor">Date cu caracter personal</router-link> |
-          <router-link to="/shipping" class="generic-anchor">Livrare</router-link>
+          <router-link @click.prevent="changeLocaleUrl()" to="/terms" class="generic-anchor">{{$t('footer.terms')}}</router-link> |
+          <router-link @click.prevent="changeLocaleUrl()" to="/personal-data" class="generic-anchor">{{$t('footer.personal_data')}}</router-link> |
+          <router-link @click.prevent="changeLocaleUrl()" to="/shipping" class="generic-anchor">{{$t('footer.shipping')}}</router-link>
         </div>
       </section>
       <cookie-law
         theme="dark-lime"
-        buttonText="Am intales"
-        message="Acest site utilizează module cookie pentru a vă asigura să beneficiați de cea mai bună experiență pe site-ul nostru.">
+        :buttonText="$t('cookiesConsent.agreeBtn')"
+        :message="$t('cookiesConsent.message')">
       </cookie-law>
     </footer>
   </v-app>
 </template>
 
+
+
 <script>
   import CookieLaw from 'vue-cookie-law'
-  import { mapGetters } from 'vuex'
+  import { mapActions, mapGetters } from 'vuex'
   export default {
     name: 'App',
     components: {CookieLaw},
@@ -207,6 +239,14 @@
         ],
         appTitle: 'Shop'
       };
+    },
+    methods: {
+      ...mapActions(['setLang']),
+      changeLocaleUrl(newLocale) {
+        if (newLocale!==undefined)
+          this.$i18n.locale = newLocale;
+        window.history.pushState("", "", '/'+this.$i18n.locale + this.$route.path);
+      }
     }
   };
 </script>

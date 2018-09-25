@@ -28,6 +28,7 @@
     "vue-cookie-law": "^1.6.0",
     "vue-easy-slider": "^3.2.0",
     "vue-flickity": "^1.1.2",
+    "vue-i18n": "^8.1.0",
     "vue-router": "^3.0.1",
     "vue-scrollto": "^2.11.0",
     "vue-typer": "^1.2.0",
@@ -36,6 +37,7 @@
     "vuex-persistedstate": "^2.5.4"
   },
   "devDependencies": {
+    "@kazupon/vue-i18n-loader": "^0.3.0",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-eslint": "^7.1.1",

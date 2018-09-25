@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="display-1 text-xs-center">Comentariile Clienților</h1>
+    <h1 class="display-1 text-xs-center">{{$t('homePage.testimonialsSection.title')}}</h1>
     <Flickity ref="flickity" :options="flickityOptions" class="main-gallery">
 
       <div class="gallery-cell" v-for="(item,i) in items" :key="i">
@@ -31,65 +31,69 @@
           prevNextButtons: true,
           pageDots: false,
           autoPlay: 5000
-        },
-        items: [
-          {
-            src: '@/assets/testimonial-bg.png',
-            title: "Sunt foarte gustoase prunele :)))",
-            text: "- Inesa Burlac"
-          },
-          {
-            src: '@/assets/testimonial-bg.png',
-            title: "Dryco.md va multumim pentru atitudine! calitate si punctualitate!",
-            text: "- Tatiana Cornita"
-          },
-          {
-            src: '@/assets/testimonial-bg.png',
-            title: "Cum le-am primit, au trecut proba. Pentru mine sunt delicioase. Multumesc!",
-            text: "- Mihaela Goncear Popa"
-          },
-          {
-            src: '@/assets/testimonial-bg.png',
-            title: "Mersi pentru prune. Paste fericit tuturor!!!",
-            text: "- Lina Velea"
-          },
-          {
-            src: '@/assets/testimonial-bg.png',
-            title: "Am comandat, sunt foarte gustoase nu ezitati!",
-            text: "- Mariana Rotari"
-          },
-          {
-            src: '@/assets/testimonial-bg.png',
-            title: "Sunt foarte gustoase,va multumesc!!!",
-            text: "- Cristina Barbaros"
-          },
-          {
-            src: '@/assets/testimonial-bg.png',
-            title: "Am cumpărat deja 4 kg de prune uscate și sunt bune!",
-            text: "- Iurie Apostol"
-          },
-          {
-            src: '@/assets/testimonial-bg.png',
-            title: "Super tare, am facut si eu comanda. Cu siguranta voi mai comanda.",
-            text: "- Sofia Fly"
-          },
-          {
-            src: '@/assets/testimonial-bg.png',
-            title: "Va multumesc mult foarte gustoase prune!",
-            text: "- Victoria Bradutanu"
-          },
-          {
-            src: '@/assets/testimonial-bg.png',
-            title: "Va multumim foarte bune prune!!!",
-            text: "- Sirbu Maria"
-          },
-          {
-            src: '@/assets/testimonial-bg.png',
-            title: "Mulțumesc mult! Prune gustoase, livrare rapida.",
-            text: "- Bonnie Bo"
-          }
-        ]
+        }
       };
+    },
+    computed: {
+      items: function () {
+        return [
+          {
+            src: '@/assets/testimonial-bg.png',
+            title: this.$tc('testimonials.element1.title'),
+            text: this.$tc('testimonials.element1.text')
+          },
+          {
+            src: '@/assets/testimonial-bg.png',
+            title: this.$tc('testimonials.element2.title'),
+            text: this.$tc('testimonials.element2.text')
+          },
+          {
+            src: '@/assets/testimonial-bg.png',
+            title: this.$tc('testimonials.element3.title'),
+            text: this.$tc('testimonials.element3.text')
+          },
+          {
+            src: '@/assets/testimonial-bg.png',
+            title: this.$tc('testimonials.element4.title'),
+            text: this.$tc('testimonials.element4.text')
+          },
+          {
+            src: '@/assets/testimonial-bg.png',
+            title: this.$tc('testimonials.element5.title'),
+            text: this.$tc('testimonials.element5.text')
+          },
+          {
+            src: '@/assets/testimonial-bg.png',
+            title: this.$tc('testimonials.element6.title'),
+            text: this.$tc('testimonials.element6.text')
+          },
+          {
+            src: '@/assets/testimonial-bg.png',
+            title: this.$tc('testimonials.element7.title'),
+            text: this.$tc('testimonials.element7.text')
+          },
+          {
+            src: '@/assets/testimonial-bg.png',
+            title: this.$tc('testimonials.element8.title'),
+            text: this.$tc('testimonials.element8.text')
+          },
+          {
+            src: '@/assets/testimonial-bg.png',
+            title: this.$tc('testimonials.element9.title'),
+            text: this.$tc('testimonials.element9.text')
+          },
+          {
+            src: '@/assets/testimonial-bg.png',
+            title: this.$tc('testimonials.element10.title'),
+            text: this.$tc('testimonials.element10.text')
+          },
+          {
+            src: '@/assets/testimonial-bg.png',
+            title: this.$tc('testimonials.element11.title'),
+            text: this.$tc('testimonials.element11.text')
+          }
+        ];
+      }
     },
 
     methods: {

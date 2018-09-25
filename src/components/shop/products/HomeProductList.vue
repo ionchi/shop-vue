@@ -2,8 +2,8 @@
   <v-container grid-list-xl>
     <v-flex xs12 sm12 class="my-3">
       <div class="text-xs-center">
-        <h1 class="display-1">Produsele noastre</h1>
-        <div class="subheading mb-3 text-xs-center">La Tine pe Masă, Direct de la Producător!</div>
+        <h1 class="display-1">{{$t('homePage.ourProductsSection.title')}}</h1>
+        <div class="subheading mb-3 text-xs-center">{{$t('homePage.ourProductsSection.subheading')}}</div>
       </div>
     </v-flex>
     <v-layout align-center justify-center row fill-height v-for="row in productRows" :key="row.id">

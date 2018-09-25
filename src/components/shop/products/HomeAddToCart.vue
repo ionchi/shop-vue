@@ -1,5 +1,5 @@
 <template>
-  <v-btn color="info" :disabled="!product.inventory" @click="addToCart(product)" to="/shop">Adaugă în Coș!</v-btn>
+  <v-btn color="info" :disabled="!product.inventory" @click="addToCart(product)" @click.prevent="changeLocaleUrl()" to="/shop">{{$t('homePage.ourProductsSection.addToCartBtn')}}</v-btn>
 </template>
 
 <script>
@@ -17,7 +17,12 @@
     methods: {
       ...mapActions ([
         'addToCart'
-      ])
+      ]),
+      changeLocaleUrl(newLocale) {
+        if (newLocale!==undefined)
+          this.$i18n.locale = newLocale;
+        window.history.pushState("", "", '/'+this.$i18n.locale + this.$route.path);
+      }
     }
   }
 </script>

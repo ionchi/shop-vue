@@ -7,38 +7,38 @@
             v-model="name"
             :rules="nameRules"
             :counter="25"
-            label="Nume*"
+            :label="$t('contactForm.name') + '*'"
             required
           ></v-text-field>
           <v-text-field
             v-model="email"
             :rules="emailRules"
-            label="E-mail*"
+            :label="$t('contactForm.email') + '*'"
             required
           ></v-text-field>
           <v-text-field
             v-model="phone"
             :rules="phoneRules"
-            label="Telefon"
+            :label="$t('contactForm.phone')"
           ></v-text-field>
           <v-select
             v-model="topic"
             :items="items"
-            label="Subiect"
+            :label="$t('contactForm.topic.header')"
           ></v-select>
           <v-textarea
             v-model="message"
-            :rules="messageRules"
-            label="Mesag*"
-            hint="Mesajul dvs"
+            :rules="[v => !!v || $t('contactForm.messageRule')]"
+            :label="$t('contactForm.message') + '*'"
+            :hint="$t('contactForm.messageHint')"
             required
           ></v-textarea>
           <v-checkbox
             v-model="checkbox"
-            :rules="[v => !!v || 'Este nevoie sa acceptati!']"
+            :rules="[v => !!v || $t('contactForm.privacyRule')]"
             required
           >
-            <span slot="label">Sunteti de acord cu <router-link to="/terms" target="_blank">termenii si conditiile?</router-link></span>
+            <span slot="label">{{$t('contactForm.privacy')}} <router-link @click.prevent="changeLocaleUrl()" to="/terms" target="_blank">{{$t('contactForm.privacyLink')}}</router-link></span>
           </v-checkbox>
 
           <v-btn
@@ -47,9 +47,9 @@
             :disabled="!valid"
             @click="submit"
           >
-            Trimite
+            {{$t('contactForm.sendBtn')}}
           </v-btn>
-          <v-btn @click="clear">Sterge</v-btn>
+          <v-btn @click="clear">{{$t('contactForm.clearBtn')}}</v-btn>
         </v-form>
       </v-card-text>
     </v-card>
@@ -58,10 +58,10 @@
       max-width="290"
     >
       <v-card>
-        <v-card-title class="headline">Mesaj trimis</v-card-title>
+        <v-card-title class="headline">{{$t('contactForm.dialog.headline')}}</v-card-title>
 
         <v-card-text>
-          Va multumim! Vă vom contacta în curând...
+          {{$t('contactForm.dialog.text')}}
         </v-card-text>
 
         <v-card-actions>
@@ -72,7 +72,7 @@
             flat="flat"
             @click="dialog = false"
           >
-            Închide
+            {{$t('contactForm.dialog.closeBtn')}}
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -91,33 +91,10 @@
       dialog: false,
       valid: true,
       name: '',
-      nameRules: [
-        v => !!v || 'Este nevoie de nume',
-        v => (v && v.length <= 25) || 'Numele trebuie sa aiba mai putin de 25 de litere'
-      ],
       email: '',
-      emailRules: [
-        v => !!v || 'Este nevoie de e-mail',
-        v => /.+@.+/.test(v) || 'Adresa e-mail trebuie sa fie valida'
-      ],
       phone: '',
-      phoneRules: [
-        value => {
-          const phonePattern = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{2,6}$/im; // (123)456-7890, 1234567890, +31636363634...
-          if (value) var digits = value.replace(/\s/g, '');
-          return phonePattern.test(digits) || value==='' || value === undefined || 'Numar invalid';
-        }
-      ],
       topic: null,
-      items: [
-        'Intrebari',
-        'Sugestii',
-        'Altele'
-      ],
       message: '',
-      messageRules: [
-        v => !!v || 'Este nevoie de un mesaj'
-      ],
       checkbox: false
     }),
     methods: {
@@ -143,6 +120,11 @@
       },
       clear () {
         this.$refs.form.reset();
+      },
+      changeLocaleUrl(newLocale) {
+        if (newLocale!==undefined)
+          this.$i18n.locale = newLocale;
+        window.history.pushState("", "", '/'+this.$i18n.locale + this.$route.path);
       }
     },
     watch: {
@@ -153,6 +135,36 @@
         setTimeout(() => (this[l] = false), 3000);
 
         this.loader = null;
+      }
+    },
+    computed: {
+      nameRules: function () {
+        return [
+          v => !!v || this.$tc('contactForm.nameRule1'),
+          v => (v && v.length <= 25) || this.$tc('contactForm.nameRule2')
+        ];
+      },
+      emailRules: function () {
+        return [
+          v => !!v || this.$tc('contactForm.emailRule1'),
+          v => /.+@.+/.test(v) || this.$tc('contactForm.emailRule2')
+        ];
+      },
+      phoneRules: function () {
+        return [
+          value => {
+            const phonePattern = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{2,6}$/im; // (123)456-7890, 1234567890, +31636363634...
+            if (value) var digits = value.replace(/\s/g, '');
+            return phonePattern.test(digits) || value==='' || value === undefined || this.$tc('contactForm.phoneRule');
+          }
+        ];
+      },
+      items: function () {
+        return [
+          this.$tc('contactForm.topic.item1'),
+          this.$tc('contactForm.topic.item2'),
+          this.$tc('contactForm.topic.item3')
+        ];
       }
     }
   }

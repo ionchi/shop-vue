@@ -1,0 +1,213 @@
+{
+  "menu": {
+    "home": "Dryco",
+    "about": "Despre noi",
+    "products": "Produse",
+    "faq":"Intrebari frecvente",
+    "contact": "Contacteaza-Ne",
+    "shop": "Cumpara"
+  },
+  "footer": {
+    "copyright": "&copy; 2018 — <strong>dryco</strong> din <span class=\"fa fa-heart\"></span> MOLDOVEI",
+    "terms": "Termeni si conditii",
+    "personal_data": "Date cu caracter personal",
+    "shipping": "Livrare"
+  },
+  "cookiesConsent": {
+    "agreeBtn": "Am inteles",
+    "message": "Acest site utilizează module cookie pentru a vă asigura să beneficiați de cea mai bună experiență pe site-ul nostru."
+  },
+  "typer": {
+    "first": "Fructe ecologice direct de la producător!",
+    "second": "Livrare la domiciliu!",
+    "button": "Cumpară"
+  },
+  "homePage": {
+    "aboutSection": {
+      "title": "Despre Noi",
+      "headline": "Livrăm prune uscate, fără fum, direct la uşa casei tale. Doar la noi găseşti cele mai gustoase, nutritive şi ecologice prune uscate, care se află la un click distanţă de tine!",
+      "pointOne": "Noi producem şi noi le vindem, fără intermediari!",
+      "pointTwo": "Preţuri accesibile şi deservire la cel mai înalt nivel!",
+      "pointThree": "Prunele ajung pe masa ta în maximum 24 de ore!",
+      "contactUsBtn": "Contactează-ne"
+    },
+    "ourProductsSection": {
+      "title": "Produsele noastre",
+      "subheading": "La Tine pe Masă, Direct de la Producător!",
+      "addToCartBtn": "Adaugă în Coș!"
+    },
+    "howWeWorkSection": {
+      "title": "Cum lucrăm",
+      "stepOne": {
+        "title": "1. COMANDA",
+        "message": "După un calcul exact, în baza unui plan concret de arhitectură, comandați produsul dorit."
+      },
+      "stepTwo": {
+        "title": "2. CONFIRMAREA",
+        "message": "Ulterior, un operator vă va contacta pentru stabilirea detaliilor necesare și confirmarea comenzii."
+      },
+      "stepThree": {
+        "title": "3. LIVRAREA",
+        "message": "Livrarea produsului se va desfășura în decurs de 2-3 zile, de la confirmarea comenzii."
+      },
+      "stepFour": {
+        "title": "4. ACHITAREA",
+        "message": "Plata produselor se va face ramburs, în momentul livrării."
+      }
+    },
+    "faqSection": {
+      "title": "Întrebări Frecvente",
+      "1": {
+        "question": "Care este procesul de uscare a prunelor?",
+        "answer": "Prunele se usuca la temperatura de 70 – 80 de grade pe lemne, fără fum, în cuptor."
+      },
+      "2": {
+        "question": "Prunele pot fi utilizate în dieta copiilor mici?",
+        "answer": "Prunele tari sunt cele mai sănătoase şi indicate pentru copii, nu conţin substanţe chimice. Prunele moi şi cele fără sâmbure conţin surbat, în cantităţi nesemnificative, conform normelor alimentare. Pot fi consumate de copii."
+      },
+      "3": {
+        "question": "Care este termenul de valabilitate a prunelor uscate?",
+        "answer": "Prunele uscate pot fi păstrate la loc uscat, la temperatura camerei, timp de şase luni."
+      },
+      "4": {
+        "question": "Cum se efectuează plata?",
+        "answer": "Plata se efectuează în numerar sau cu cardul la livrarea produsului."
+      },
+      "5": {
+        "question": "În cât timp se realizează livrarea produsului?",
+        "answer": "Prunele se livrează în maximum 24 de ore."
+      },
+      "6": {
+        "question": "Se pot cumpăra en gros?",
+        "answer": "Da, pentru detalii, contactaţi-ne la numărul de telefon: 060362829, sau accesați secțiunea \"contactează-ne\""
+      }
+    },
+    "contactSection": {
+      "title": "Contactează-ne",
+      "addressHeader": "Adresa Noastră",
+      "address": "Alexandru cel Bun 95 <br> Chișinău, Moldova",
+      "phoneHeader": "Telefon",
+      "emailHeader": "Adresa de e-mail"
+    },
+    "testimonialsSection": {
+      "title": "Comentariile Clienților"
+    }
+  },
+  "contactForm": {
+    "name": "Nume",
+    "nameRule1": "Este nevoie de nume",
+    "nameRule2": "Numele trebuie sa aiba mai putin de 25 de litere",
+    "email": "E-mail",
+    "emailRule1": "Este nevoie de e-mail",
+    "emailRule2": "Adresa e-mail trebuie sa fie valida",
+    "phone": "Telefon",
+    "phoneRule": "Numar invalid",
+    "topic": {
+      "header": "Subiect",
+      "item1": "Intrebari",
+      "item2": "Sugestii",
+      "item3": "Altele"
+    },
+    "message": "Mesaj",
+    "messageRule": "Este nevoie de un mesaj",
+    "messageHint": "Mesajul dvs",
+    "privacy": "Sunteti de acord cu",
+    "privacyLink": "termenii si conditiile?",
+    "privacyRule": "Este nevoie sa acceptati!",
+    "sendBtn": "Trimite",
+    "clearBtn": "Sterge",
+    "dialog": {
+      "headline": "Mesaj trimis",
+      "text": "Va multumim! Vă vom contacta în curând...",
+      "closeBtn": "Închide"
+    }
+  },
+  "testimonials": {
+    "element1": {
+      "title": "Sunt foarte gustoase prunele :)))",
+      "text": "- Inesa Burlac"
+    },
+    "element2": {
+      "title": "Dryco.md va multumim pentru atitudine! calitate si punctualitate!",
+      "text": "- Tatiana Cornita"
+    },
+    "element3": {
+      "title": "Cum le-am primit, au trecut proba. Pentru mine sunt delicioase. Multumesc!",
+      "text": "- Mihaela Goncear Popa"
+    },
+    "element4": {
+      "title": "Mersi pentru prune. Paste fericit tuturor!!!",
+      "text": "- Lina Velea"
+    },
+    "element5": {
+      "title": "Am comandat, sunt foarte gustoase nu ezitati!",
+      "text": "- Mariana Rotari"
+    },
+    "element6": {
+      "title": "Sunt foarte gustoase,va multumesc!!!",
+      "text": "- Cristina Barbaros"
+    },
+    "element7": {
+      "title": "Am cumpărat deja 4 kg de prune uscate și sunt bune!",
+      "text": "- Iurie Apostol"
+    },
+    "element8": {
+      "title": "Super tare, am facut si eu comanda. Cu siguranta voi mai comanda.",
+      "text": "- Sofia Fly"
+    },
+    "element9": {
+      "title": "Va multumesc mult foarte gustoase prune!",
+      "text": "- Victoria Bradutanu"
+    },
+    "element10": {
+      "title": "Va multumim foarte bune prune!!!",
+      "text": "- Sirbu Maria"
+    },
+    "element11": {
+      "title": "Mulțumesc mult! Prune gustoase, livrare rapida.",
+      "text": "- Bonnie Bo"
+    }
+  },
+  "shop": {
+    "header": "Cos",
+    "subheader": "Livrare Gratis de la 120 lei!",
+    "orderBtn": "Plasează Comanda!",
+    "summary": {
+      "subtotal": "Subtotal",
+      "shipping": "Livrare",
+      "free": "Gratuit",
+      "total": "Total"
+    },
+    "kg": "kg",
+    "price": "Pret"
+  },
+  "checkout": {
+    "header": "Comanda",
+    "form": {
+      "name": "Nume",
+      "nameRule": "Este nevoie de nume",
+      "address": "Adresa",
+      "addressRule1": "Este nevoie de adresa",
+      "addressRule2": "Adresa trebuie sa aiba mai putin de 25 de litere",
+      "block": "Bloc",
+      "unit": "Scara",
+      "interphone": "Interfon",
+      "phone": "Telefon",
+      "phoneRule": "Numar invalid",
+      "email": "E-mail",
+      "emailRule": "Adresa e-mail trebuie sa fie valida",
+      "info": "Informatie suplimentara",
+      "payment": {
+        "cash": "Plata in numerar",
+        "card": "Curier card de credit"
+      },
+      "sendBtn": "Trimite",
+      "clearBtn": "Sterge",
+      "dialog": {
+        "headline": "Comanda dvs a fost plasata cu succes",
+        "text": "Va multumim! Vă vom contacta în curând...",
+        "closeBtn": "Închide"
+      }
+    }
+  }
+}
