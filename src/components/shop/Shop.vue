@@ -9,7 +9,7 @@
           </div>
           <ShoppingCart />
           <div class="mt-1 text-xs-center chk-btn">
-            <v-btn color="success" to="/checkout" :disabled="!itemsQuantity" @click.prevent="changeLocaleUrl()">{{$t('shop.orderBtn')}}</v-btn>
+            <v-btn color="success" to="/checkout" class="drycoBtnGreen" :disabled="!itemsQuantity" @click.prevent="changeLocaleUrl()">{{$t('shop.orderBtn')}}</v-btn>
           </div>
         </div>
 
@@ -54,6 +54,10 @@
 <style scoped>
   .chk-btn {
     margin-bottom: 20px;
+  }
+
+  .drycoBtnGreen {
+    background-color: #307167 !important;
   }
 
   @media only screen and (max-width: 600px) {

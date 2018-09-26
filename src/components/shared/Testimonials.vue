@@ -112,7 +112,7 @@
   .main-gallery {
     background: #fafafa;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
-    border-top: solid 10px #7AA641;
+    border-top: solid 10px #307167;
   }
 
   .gallery-cell {
@@ -147,11 +147,11 @@
   .testimonial-author {
     display: block;
     font-weight: 800;
-    color: #7AA641;
+    color: #307167;
   }
 
   .flickity-page-dots .dot.is-selected {
-    background: #7AA641;
+    background: #307167;
   }
 
 </style>

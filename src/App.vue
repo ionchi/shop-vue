@@ -162,9 +162,9 @@
           class="menuBtn"
           @click.prevent="changeLocaleUrl()"
           to="/shop">
-          <v-badge right color="success">
-            <span v-if="itemsQuantity!==0" slot="badge">{{itemsQuantity}}</span>
-            <v-icon left dark>shopping_cart</v-icon>
+          <v-badge right color="teal darken-2" >
+            <span v-if="itemsQuantity!==0" slot="badge" >{{itemsQuantity}}</span>
+            <v-icon left dark >shopping_cart</v-icon>
             {{$t("menu.shop")}}
           </v-badge>
         </v-btn>

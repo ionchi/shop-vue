@@ -1,5 +1,5 @@
 <template>
-  <v-btn fab dark small color="info" @click="removeOneFromCart(product)"><v-icon dark>remove</v-icon></v-btn>
+  <v-btn fab dark small color="info" class="drycoBtn" @click="removeOneFromCart(product)"><v-icon dark>remove</v-icon></v-btn>
 </template>
 
 <script>
@@ -19,3 +19,9 @@
     }
   }
 </script>
+
+<style scoped>
+  .drycoBtn {
+    background-color: #30BCD5 !important;
+  }
+</style>
