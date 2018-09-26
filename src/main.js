@@ -2,6 +2,7 @@ import Vue from 'vue'
 import BootstrapVue from 'bootstrap-vue'
 import Vuetify from 'vuetify'
 import VueScrollTo from 'vue-scrollto';
+import FlagIcon from 'vue-flag-icon'
 import accounting from 'accounting'
 import pluralize from 'pluralize'
 import router from './router'
@@ -16,6 +17,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 Vue.use(Vuetify);
 Vue.use(BootstrapVue);
 Vue.use(VueScrollTo);
+Vue.use(FlagIcon);
 Vue.config.productionTip = false;
 
 Vue.filter('formatMoney', function(val){

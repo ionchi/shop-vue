@@ -4,7 +4,7 @@ import HomePage from './components/HomePage'
 import Shop from './components/shop/Shop'
 import Checkout from './components/shop/Checkout'
 import PageNotFound from './components/shared/PageNotFound'
-import TermsConditions from './components/TermsConditons'
+import TermsConditions from './components/TermsConditions'
 import Shipping from './components/Shipping'
 import PersonalData from './components/PersonalData'
 

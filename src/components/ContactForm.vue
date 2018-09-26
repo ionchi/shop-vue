@@ -38,7 +38,12 @@
             :rules="[v => !!v || $t('contactForm.privacyRule')]"
             required
           >
-            <span slot="label">{{$t('contactForm.privacy')}} <router-link @click.prevent="changeLocaleUrl()" to="/terms" target="_blank">{{$t('contactForm.privacyLink')}}</router-link></span>
+            <span slot="label">
+              {{$t('contactForm.privacy')}}
+              <b-button variant="link" size="lg" @click="privacyDialog=true" class="termsBtn">
+                {{$t('contactForm.privacyLink')}}
+              </b-button>
+            </span>
           </v-checkbox>
 
           <v-btn
@@ -77,14 +82,48 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+    <v-dialog
+      v-model="privacyDialog"
+      width="500"
+    >
+      <v-card>
+        <v-card-title
+          class="headline grey lighten-2"
+          primary-title
+        >
+          {{$t('privacy.dialogHeader')}}
+        </v-card-title>
+
+        <v-card-text>
+          <TermsConditions/>
+        </v-card-text>
+
+        <v-divider></v-divider>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="primary"
+            flat
+            @click="privacyDialog = false"
+          >
+            {{$t('privacy.dialogAcceptBtn')}}
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
 
 <script>
   import axios from 'axios'
+  import TermsConditions from '../components/TermsConditions'
 
   export default {
     name: 'ContactForm',
+    components: {
+      TermsConditions
+    },
     data: () => ({
       loader: null,
       loading: false,
@@ -95,7 +134,8 @@
       phone: '',
       topic: null,
       message: '',
-      checkbox: false
+      checkbox: false,
+      privacyDialog: false
     }),
     methods: {
       submit () {
@@ -171,5 +211,7 @@
 </script>
 
 <style scoped>
-
+  .termsBtn {
+    padding: 0px;
+  }
 </style>

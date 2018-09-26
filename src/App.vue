@@ -6,6 +6,26 @@
       </v-btn>
       <v-list>
         <v-list-tile
+          v-if="this.$i18n.locale==='ru'"
+          @click="setLang('ro')"
+          @click.stop="sidebar = !sidebar">
+          <v-list-tile-action>
+            <v-icon></v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content><flag style="font-size:20px" iso="ro"/></v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile
+          v-if="this.$i18n.locale==='ro'"
+          @click="setLang('ru')"
+          @click.stop="sidebar = !sidebar">
+          <v-list-tile-action>
+            <v-icon></v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content ><flag style="font-size:20px" iso="ru"/></v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+      <v-list>
+        <v-list-tile
           to="/"
           class="menuBtn"
           @click.stop="sidebar = !sidebar">
@@ -51,22 +71,6 @@
               <v-icon></v-icon>
             </v-list-tile-action>
             <v-list-tile-content>{{$t("menu.contact")}}</v-list-tile-content>
-          </v-list-tile>
-          <v-list-tile
-            @click="setLang('ro')"
-            @click.stop="sidebar = !sidebar">
-            <v-list-tile-action>
-              <v-icon></v-icon>
-            </v-list-tile-action>
-            <v-list-tile-content>RO</v-list-tile-content>
-          </v-list-tile>
-          <v-list-tile
-            @click="setLang('ru')"
-            @click.stop="sidebar = !sidebar">
-            <v-list-tile-action>
-              <v-icon></v-icon>
-            </v-list-tile-action>
-            <v-list-tile-content>RU</v-list-tile-content>
           </v-list-tile>
         </v-list>
         <v-list-tile
@@ -165,18 +169,22 @@
           </v-badge>
         </v-btn>
         <v-btn
+          v-if="this.$i18n.locale==='ru'"
           flat
           large
           class="menuBtn"
           @click="setLang('ro')"
-          @click.prevent="changeLocaleUrl('ro')">ro
+          @click.prevent="changeLocaleUrl('ro')"
+          style="font-size:25px"><flag iso="ro"/>
         </v-btn>
         <v-btn
+          v-if="this.$i18n.locale==='ro'"
           flat
           large
           class="menuBtn"
           @click="setLang('ru')"
-          @click.prevent="changeLocaleUrl('ru')">ru
+          @click.prevent="changeLocaleUrl('ru')"
+          style="font-size:25px"><flag iso="ru"/>
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
