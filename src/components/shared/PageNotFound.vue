@@ -5,7 +5,7 @@
     </div>
 
     <div class="subtitle">
-      Oops, pagina nu a fost găsită...
+      {{$t('404')}}
     </div>
 
     <div class="buttons">
