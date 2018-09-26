@@ -16,7 +16,7 @@
 
   $success = @mail($email_to, "[dryco.md] ".$subject, $message);
 
-  $noreply = @mail($email_from, "[dryco.md] | Mulțumim pentru mesaj!", "În curînd, un reprezentant al companiei dryco.md va lua legătura cu d-stră.");
+  $noreply = @mail($email_from, "[dryco.md] | Mulțumim pentru mesaj! | Спасибо за сообщение!", "În curînd, un reprezentant al companiei dryco.md va lua legătura cu d-stră. \n\nВскоре представитель dryco.md свяжется с вами.");
 
   echo json_encode($success);
   exit;

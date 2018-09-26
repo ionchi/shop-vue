@@ -327,6 +327,12 @@
     background-size: cover;
   }
 
+  @media only screen and (max-width: 600px) {
+    .center {
+      height: 75vh;
+    }
+  }
+
   .center__text {
     font-size: 40px;
     padding: 5px 10px;

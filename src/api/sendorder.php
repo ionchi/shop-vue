@@ -64,6 +64,6 @@ $db_database = mysql_select_db($db_name, $con);
 
   $success = @mail($email_to, "[comanda noua]".$email, $message);
 
-  $noreply = @mail($email_from, "[dryco.md] | Mulțumim pentru comanda!", "Comanda d-stra a fost plasata cu succes, in curînd, un reprezentant al companiei dryco.md va lua legătura cu d-stră. Suma spre plata:".$cart_total);
+  $noreply = @mail($email_from, "[dryco.md] | Mulțumim pentru comanda! | Спасибо за ваш заказ!", "Comanda d-stra a fost plasata cu succes, in curînd, un reprezentant al companiei dryco.md va lua legătura cu d-stră. \n\nЗаказ был успешно размещен, вскоре представитель компании dryco.md свяжется с вами.\n\n Suma spre plata (lei)/Сумма платежа(лей):".$cart_total);
 
 ?>

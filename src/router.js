@@ -17,6 +17,7 @@ export default new Router({
   base: (locale.trim().length && locale != "/") ? '/' + locale : undefined,
   routes: [
     // Don't go more than one level in depth [ok /shop; NOT ok /shop/checkout or change changeLocaleUrl funct]
+    // TODO Known bugs: if url is www.site.xx/asdasd the language is set to asdasd [malfunctions]
     {
       path: '/',
       name: 'home',
