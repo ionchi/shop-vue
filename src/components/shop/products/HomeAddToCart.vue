@@ -1,5 +1,5 @@
 <template>
-  <v-btn color="info" :disabled="!product.inventory" @click="addToCart(product)" @click.prevent="changeLocaleUrl()" to="/shop">{{$t('homePage.ourProductsSection.addToCartBtn')}}</v-btn>
+  <v-btn color="info" class="drycoBtn" :disabled="!product.inventory" @click="addToCart(product)" @click.prevent="changeLocaleUrl()" to="/shop">{{$t('homePage.ourProductsSection.addToCartBtn')}}</v-btn>
 </template>
 
 <script>
@@ -26,3 +26,10 @@
     }
   }
 </script>
+
+<style scoped>
+  .drycoBtn {
+    background-color: #30BCD5 !important;
+  }
+</style>
+

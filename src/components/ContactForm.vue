@@ -48,6 +48,7 @@
 
           <v-btn
             color="info"
+            class="drycoBtn"
             :loading="loading"
             :disabled="!valid"
             @click="submit"
@@ -103,7 +104,7 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn
-            color="primary"
+            class="drycoBtn"
             flat
             @click="privacyDialog = false"
           >
@@ -213,5 +214,9 @@
 <style scoped>
   .termsBtn {
     padding: 0px;
+  }
+
+  .drycoBtn {
+    background-color: #30BCD5 !important;
   }
 </style>

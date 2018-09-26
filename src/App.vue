@@ -103,7 +103,7 @@
         </v-toolbar-side-icon>
       </span>
       <v-toolbar-title>
-        <router-link to="/" tag="span" style="cursor: pointer">
+        <router-link to="/" @click.prevent="changeLocaleUrl()" tag="span" style="cursor: pointer">
           <v-avatar
             :size="100"
             color="grey lighten-4 logo"
@@ -116,7 +116,7 @@
         </router-link>
       </v-toolbar-title>
       <div class="phoneNr hidden-sm-and-down">
-        <v-btn icon href="tel:060362829" class="menuBtn">
+        <v-btn large flat href="tel:060362829" class="menuBtn">
           <v-icon>phone</v-icon>
           &nbsp; 060 36 28 29
         </v-btn>

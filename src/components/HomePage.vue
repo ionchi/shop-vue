@@ -22,7 +22,7 @@
             class="text-xs-center center__text"
           ></vue-typer>
           <v-btn
-            class="mt-2"
+            class="mt-2 drycoBtn"
             color="info"
             large
             depressed
@@ -57,7 +57,7 @@
                   class="white--text"
                 >
                   <v-btn
-                    class="mt-2"
+                    class="mt-2 drycoBtn"
                     color="info"
                     dark
                     large
@@ -307,13 +307,13 @@
   #services .circle{background:#f1f1f1;width:120px;height:120px;transform:scale(1);border-radius:50em;margin:20px auto 0 auto;transition:all .4s ease-in-out;border:2px solid transparent;}
   #services:hover .circle{}
   #services .circle:after{content:"";display:block;border-radius:50em;width:100%;height:100%;border:2px solid #b2b2b2;margin:-2px 0px 0px -2px;transition:all .4s ease-in-out;}
-  #services .service-item:hover .circle:after{content:"";display:block;border-radius:50em;width:125%;height:125%;border:2px solid #2196f3;margin:-17px 0px 0px -17px;transition:all .4s ease-in-out;}
+  #services .service-item:hover .circle:after{content:"";display:block;border-radius:50em;width:125%;height:125%;border:2px solid #30BCD5;margin:-17px 0px 0px -17px;transition:all .4s ease-in-out;}
   #services i.fa{color:#757575;font-size:40px;position:absolute;top:38px;left:37px;transition:all .4s ease-in-out;}
-  #services .service-item:hover i.fa{color:#2196f3;}
+  #services .service-item:hover i.fa{color:#30BCD5;}
   #services .headline{width:100%;padding:0 25px;text-align:center;position:relative;top:10px;text-transform:uppercase;font-weight:bold;font-size:19px;color:#757575;transition:all .4s ease-in-out;}
   #services .headline:after{content:"";background:#9e9e9e;width:40px;height:2px;position:absolute;display:block;left:50%;bottom:-10px;margin-left:-20px;transition:all .4s ease-in-out;}
-  #services .service-item:hover .headline:after{background:#2196f3;}
-  #services .service-item:hover .headline{top:25px;color:#2196f3;}
+  #services .service-item:hover .headline:after{background:#30BCD5;}
+  #services .service-item:hover .headline{top:25px;color:#30BCD5;}
   #services .text{width:100%;padding:0 25px;text-align:center;position:relative;top:30px;color:#757575;transition:all .4s ease-in-out;}
   #services .service-item:hover .text{top:45px;color:#333;}
 
@@ -336,6 +336,10 @@
   .center__text {
     font-size: 40px;
     padding: 5px 10px;
+  }
+
+  .drycoBtn {
+    background-color: #30BCD5 !important;
   }
 </style>
 
