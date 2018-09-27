@@ -77,7 +77,7 @@
           to="/shop"
           @click.stop="sidebar = !sidebar">
           <v-list-tile-action>
-            <v-badge right color="success">
+            <v-badge right color="teal darken-2">
               <span v-if="itemsQuantity!==0" slot="badge">{{itemsQuantity}}</span>
               <v-icon
                 color="grey lighten-1"
@@ -90,7 +90,7 @@
         </v-list-tile>
       </v-list>
       <div class="phoneNrPhone">
-        <v-btn icon href="tel:060362829" class="menuBtn">
+        <v-btn flat href="tel:060362829" class="menuBtn">
           <v-icon>phone</v-icon>
           &nbsp; 060 36 28 29
         </v-btn>
