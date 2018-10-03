@@ -6,7 +6,7 @@
           <div class="media-object rounded thumb"></div>
         </div>
         <div class="media-body align-middle">
-          <strong class="d-block headline" v-if="this.$i18n.locale==='ro'">{{item.title}}</strong>
+          <strong class="d-block headline" v-if="this.$i18n.locale==='ro'">{{item.title | dbLangFix}}</strong>
           <strong class="d-block headline" v-else>{{item.titleRu}}</strong>
         </div>
       </v-flex>

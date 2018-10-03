@@ -26,6 +26,11 @@ Vue.filter('formatMoney', function(val){
 Vue.filter('formatMoneyRu', function(val){
   return accounting.formatMoney(val, { symbol: "лей",  format: "%v %s" }, 2, ".", ",");
 });
+Vue.filter('dbLangFix', function(val){
+  if (val === 'Prune Fara Sambure')
+    return 'Prune Fără Sâmbure';
+  return val;
+});
 Vue.filter('pluralize', pluralize);
 
 router.beforeEach((to, from, next) => {

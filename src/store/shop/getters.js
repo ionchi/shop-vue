@@ -34,7 +34,7 @@ export const shipping = state => {
     return subtotal + item.price * item.quantity;
   }, 0);
 
-  if (sum > 120 || !shippings.length) {
+  if (sum >= 165 || !shippings.length) {
     return 0;
   } else {
     return Math.max(...shippings);
@@ -42,6 +42,5 @@ export const shipping = state => {
 };
 
 export const total = state => {
-  const discout = state.shoppingCart.totalDiscount ? -100 : 0;
-  return subtotal(state) + taxes(state) + shipping(state) + discout;
+  return subtotal(state) + taxes(state) + shipping(state);
 };

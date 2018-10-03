@@ -4,7 +4,7 @@
       <div class="media-object rounded thumb"></div>
     </div>
     <div class="media-body">
-      <strong class="d-block" v-if="this.$i18n.locale==='ro'">{{item.title}}</strong>
+      <strong class="d-block" v-if="this.$i18n.locale==='ro'">{{item.title | dbLangFix}}</strong>
       <strong class="d-block" v-else>{{item.titleRu}}</strong>
       <span>{{$t('shop.price')}}:
         <span v-if="this.$i18n.locale==='ro'">{{item.price | formatMoney}}/{{$t('shop.kg')}}</span>

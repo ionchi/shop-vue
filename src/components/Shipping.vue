@@ -1,7 +1,5 @@
 <template>
-    <v-container class="container">
-      <p>Bla bla bla livrare</p>
-    </v-container>
+  <div class="container" v-html="$t('shipping.policy')"></div>
 </template>
 
 <script>
@@ -12,6 +10,10 @@
 
 <style scoped>
   .container {
+    margin-top: 30px;
+  }
+
+  .rules {
     margin-top: 30px;
   }
 </style>

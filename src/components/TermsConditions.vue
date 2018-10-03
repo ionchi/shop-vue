@@ -1,6 +1,5 @@
 <template>
-  <div class="container" v-html="$t('privacy.policy')">
-  </div>
+  <div class="container" v-html="$t('privacy.policy')"></div>
 </template>
 
 <script>

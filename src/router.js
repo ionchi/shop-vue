@@ -6,7 +6,6 @@ import Checkout from './components/shop/Checkout'
 import PageNotFound from './components/shared/PageNotFound'
 import TermsConditions from './components/TermsConditions'
 import Shipping from './components/Shipping'
-import PersonalData from './components/PersonalData'
 
 Vue.use(Router);
 
@@ -37,11 +36,6 @@ export default new Router({
       path: '/terms',
       name: 'terms',
       component: TermsConditions
-    },
-    {
-      path: '/personal-data',
-      name: 'personalData',
-      component: PersonalData
     },
     {
       path: '/shipping',

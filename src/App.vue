@@ -208,7 +208,6 @@
         </div>
         <div class="footer-bottom-wrapper">
           <router-link @click.prevent="changeLocaleUrl()" to="/terms" class="generic-anchor">{{$t('footer.terms')}}</router-link> |
-          <router-link @click.prevent="changeLocaleUrl()" to="/personal-data" class="generic-anchor">{{$t('footer.personal_data')}}</router-link> |
           <router-link @click.prevent="changeLocaleUrl()" to="/shipping" class="generic-anchor">{{$t('footer.shipping')}}</router-link>
         </div>
       </section>
