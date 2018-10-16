@@ -15,7 +15,7 @@ const messages = {
 };
 
 const i18n = new VueI18n({
-  locale: (locale.trim().length && locale != "/") ? locale : defaultLocale,
+  locale: (locale.trim().length && locale !== "/" && (locale === "ro" || locale === "ru")) ? locale : defaultLocale,
   fallbackLocale: 'ro',
   messages
 });

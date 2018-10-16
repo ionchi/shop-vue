@@ -9,14 +9,21 @@ import Shipping from './components/Shipping'
 
 Vue.use(Router);
 
-var locale = window.location.pathname.replace(/^\/([^\/]+).*/i,'$1');
+let locale = getLocale();
+
+function getLocale() {
+  let locale = window.location.pathname.replace(/^\/([^\/]+).*/i,'$1');
+  if (locale !== 'ro' && locale !== 'ru')
+    return 'ro';
+  else
+    return locale;
+}
 
 export default new Router({
   mode: 'history',
-  base: (locale.trim().length && locale != "/") ? '/' + locale : undefined,
+  base: (locale.trim().length && locale !== "/") ? '/' + locale : undefined,
   routes: [
     // Don't go more than one level in depth [ok /shop; NOT ok /shop/checkout - OR change changeLocaleUrl function]
-    // TODO Known bugs: if url is www.site.xx/asdasd the language is set to asdasd [malfunctions]
     {
       path: '/',
       name: 'home',

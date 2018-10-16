@@ -40,7 +40,11 @@ $db_database = mysql_select_db($db_name, $con);
       $product_qty = $value->quantity;
       $product_price = $value->price;
 
-      $sql="INSERT INTO orders (order_id, nume, telefon, adresa, bloc, scara, interfon, info, tip_plata, email, produs, cantitate, pret_kg, livrare, total)
+      // $sql="INSERT INTO orders (order_id, nume, telefon, adresa, bloc, scara, interfon, info, tip_plata, email, produs, cantitate, pret_kg, livrare, total)
+      // VALUES
+      // ('$order_id','$name','$telno','$address','$block','$unit','$interphone','$info','$payment','$email','$product','$product_qty','$product_price','$cart_shipping','$cart_total')";
+
+      $sql="INSERT INTO orders_new (order_id, name, phone, address, block, unit, interphone, info, payment, email, product, quantity, price, shipping, total)
       VALUES
       ('$order_id','$name','$telno','$address','$block','$unit','$interphone','$info','$payment','$email','$product','$product_qty','$product_price','$cart_shipping','$cart_total')";
 
