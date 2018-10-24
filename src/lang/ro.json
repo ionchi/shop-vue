@@ -217,5 +217,12 @@
   "shipping": {
     "policy": "<h3 class=\"display-2\">Condiții de livrare în Chișinău</h3> <div style=\"margin-top:30px; \"> <h5 class=\"title font-weight-light\"> - Valoarea minimă a comenzii este de 55 Lei.</h5> <h5 class=\"title font-weight-light\"> - Pentru comenzile cuprinse între 55 și 165 Lei se va adăuga un cost de livrare de 50 Lei.</h5> <h5 class=\"title font-weight-light\"> - Pentru comenzile ce depășesc 165 Lei, livrarea este gratuită.</h5> <h5 class=\"title font-weight-light\"> - Livrarea comenzilor se efectuează între orele 08:00 - 23:00.</h5> <h5 class=\"title font-weight-light\"> - Ora livrării se stabilește împreună cu operatorul telefonic.</h5></div> <h5 class=\"title font-weight-light\"> - Livrarea în suburbiile orașului se negociază independent cu operatorul telefonic în funcție de cantitatea produselor procurate.</h5></div>"
   },
-  "404": "Oops, pagina nu a fost găsită..."
+  "404": "Oops, pagina nu a fost găsită...",
+  "workInProgress": {
+    "testimonials": {
+      "text": "Aici va apărea comentariul d-stră.",
+      "name": "Nume Prenume"
+    },
+    "shop-alert": "Ne pare rău dar încă aprovizionăm stocurile. Momentan nu puteți plasa o comandă."
+  }
 }

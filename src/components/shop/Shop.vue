@@ -1,9 +1,18 @@
 <template>
   <div>
     <div class="container">
+
       <div class="row mt-2">
+
         <div class="col-sm-12">
+
           <div class="text-xs-center titleCart">
+            <v-alert
+              :value="true"
+              type="warning"
+            >
+              {{$t('workInProgress.shop-alert')}}
+            </v-alert>
             <h3>{{$t('shop.header')}}</h3>
             <em class="sub-content">{{$t('shop.subheader')}}</em>
           </div>
@@ -20,7 +29,7 @@
       </div>
     </div>
     <v-divider></v-divider>
-    <Testimonials/>
+    <TestimonialsWorkInProgress/>
   </div>
 </template>
 
@@ -28,7 +37,7 @@
   import ProductList from './products/ProductList'
   import ShoppingCart from './shopping-cart/ShoppingCart'
   import { mapGetters } from 'vuex'
-  import Testimonials from '../shared/Testimonials';
+  import TestimonialsWorkInProgress from '../shared/TestimonialsWorkInProgress';
 
   export default {
     name: 'Shop',
@@ -37,7 +46,7 @@
         'itemsQuantity'
       ])},
     components: {
-      Testimonials,
+      TestimonialsWorkInProgress,
       ProductList,
       ShoppingCart
     },

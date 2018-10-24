@@ -213,14 +213,13 @@
     </section>
     <v-divider></v-divider>
 
-    <Testimonials/>
+    <TestimonialsWorkInProgress/>
   </div>
 </template>
 
 <script>
   import { VueTyper } from 'vue-typer'
-  import TestimonialsOld from './shared/TestimonialsOld'
-  import Testimonials from './shared/Testimonials'
+  import TestimonialsWorkInProgress from './shared/TestimonialsWorkInProgress'
   import ContactForm from './ContactForm'
   import Faq from './Faq'
   import HomeProductList from './shop/products/HomeProductList'
@@ -229,11 +228,10 @@
     name: 'HomePage',
     components: {
       VueTyper,
-      TestimonialsOld,
       ContactForm,
       Faq,
       HomeProductList,
-      Testimonials
+      TestimonialsWorkInProgress
     },
     methods: {
       changeLocaleUrl(newLocale) {
