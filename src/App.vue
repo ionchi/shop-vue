@@ -110,7 +110,7 @@
           >
             <img
               src="./assets/logo.png"
-              alt="Logo"
+              alt="logo-dryco"
             >
           </v-avatar>
         </router-link>

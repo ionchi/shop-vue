@@ -71,7 +71,6 @@
                 :loading="loading"
                 :disabled="!valid"
                 @click="submit"
-                disabled
               >
                 {{$t('checkout.form.sendBtn')}}
               </v-btn>
@@ -153,7 +152,7 @@
         loader: null,
         loading: false,
         dialog: false,
-        valid: true,
+        valid: false,
         name: '',
         email: '',
         phone: '',

@@ -1,8 +1,8 @@
 <template>
   <v-container>
-    <v-flex xs12 sm12>
+    <v-flex xs12 sm12 >
       <div>
-        <v-alert
+        <v-alert style="margin:40px 0;"
           :value="true"
           type="warning"
           class="text-md-center"

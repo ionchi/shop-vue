@@ -72,7 +72,7 @@
             </v-card>
           </v-flex>
           <v-flex xs12 sm5>
-            <b-img :src="require('../assets/about-right.png')" fluid alt="About us" />
+            <b-img :src="require('../assets/plum.png')" fluid alt="despre dryco" />
           </v-flex>
         </v-layout>
       </v-container>
@@ -145,7 +145,7 @@
         </v-flex>
         <v-layout wrap align-center justify-center row fill-height>
           <v-flex xs12 sm5>
-            <b-img  :src="require('../assets/faq-right.png')" fluid alt="Faq" />
+            <b-img  :src="require('../assets/faq.png')" fluid alt="intrebari frecvente" />
           </v-flex>
           <v-flex xs12 sm7 my-5>
             <v-card class="elevation-0 transparent" >
