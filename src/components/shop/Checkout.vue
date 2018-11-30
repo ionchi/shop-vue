@@ -2,13 +2,6 @@
   <v-container>
     <v-flex xs12 sm12 >
       <div>
-        <v-alert style="margin:40px 0;"
-          :value="true"
-          type="warning"
-          class="text-md-center"
-        >
-          {{$t('workInProgress.shop-alert')}}
-        </v-alert>
         <h3 class="titleChk text-xs-center">{{$t('checkout.header')}}</h3>
       </div>
     </v-flex>

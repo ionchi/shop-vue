@@ -57,7 +57,7 @@
             title: this.$tc('testimonials.element4.title'),
             text: this.$tc('testimonials.element4.text')
           },
-          {
+          /*{
             src: '@/assets/testimonial-bg.png',
             title: this.$tc('testimonials.element5.title'),
             text: this.$tc('testimonials.element5.text')
@@ -92,6 +92,7 @@
             title: this.$tc('testimonials.element11.title'),
             text: this.$tc('testimonials.element11.text')
           }
+          */
         ];
       }
     },

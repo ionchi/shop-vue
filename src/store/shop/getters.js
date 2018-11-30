@@ -34,7 +34,7 @@ export const shipping = state => {
     return subtotal + item.price * item.quantity;
   }, 0);
 
-  if (sum >= 165 || !shippings.length) {
+  if (sum >= 150 || !shippings.length) {
     return 0;
   } else {
     return Math.max(...shippings);

@@ -56,7 +56,7 @@
         return total > 0 ? this.total : 0;
       },
       freeShip () {
-        return this.$store.getters.subtotal>=165;
+        return this.$store.getters.subtotal>=150;
       }
     }
   }

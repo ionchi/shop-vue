@@ -5,11 +5,15 @@
     </div>
 
     <div class="subtitle">
-      {{$t('404')}}
+      {{$t('errorPage.header')}}
+    </div>
+    <br>
+    <div class="subtitle text-md-center" v-html="$t('errorPage.subheader')">
+
     </div>
 
     <div class="buttons">
-      <a class="button" href="/">Dryco</a>
+      <router-link class="button" to="/shop">{{$t('errorPage.shopBtn')}}</router-link>
     </div>
   </div>
 </template>
