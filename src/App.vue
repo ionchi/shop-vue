@@ -90,7 +90,7 @@
         </v-list-tile>
       </v-list>
       <div class="phoneNrPhone">
-        <v-btn flat href="tel:060362829" class="menuBtn">
+        <v-btn flat href="tel:060362829" class="menuBtn phone-number" @click="tagManagerPhoneClick">
           <v-icon>phone</v-icon>
           &nbsp; 060 36 28 29
         </v-btn>
@@ -116,7 +116,7 @@
         </router-link>
       </v-toolbar-title>
       <div class="phoneNr hidden-sm-and-down">
-        <v-btn large flat href="tel:060362829" class="menuBtn">
+        <v-btn large flat href="tel:060362829" class="menuBtn phone-number" @click="tagManagerPhoneClick">
           <v-icon>phone</v-icon>
           &nbsp; 060 36 28 29
         </v-btn>
@@ -145,7 +145,7 @@
             flat
             small
             class="menuBtn"
-            v-scroll-to="{ el: '#our-products', offset: -60 }">
+            v-scroll-to="{ el: '#our-products', offset: -20 }">
             {{$t("menu.products")}}
           </v-btn>
           <v-btn
@@ -198,9 +198,9 @@
 
       <section class="footer-social-section flex-rw">
         <span class="footer-social-overlap footer-social-icons-wrapper">
-          <a href="tel:060362829" class="generic-anchor" target="_blank" title="Phone" itemprop="significantLink"><i class="fas fa-phone-square"></i></a>
-          <a href="https://www.facebook.com/" class="generic-anchor" target="_blank" title="Facebook" itemprop="significantLink"><i class="fab fa-facebook"></i></a>
-          <a href="http://instagram.com/" class="generic-anchor" target="_blank" title="Instagram" itemprop="significantLink"><i class="fab fa-instagram"></i></a>
+          <a href="tel:060362829" @click="tagManagerPhoneClick" class="generic-anchor phone-number" title="Phone" itemprop="significantLink"><i class="fas fa-phone-square"></i></a>
+          <a href="https://www.facebook.com/dryco.md/" class="generic-anchor" target="_blank" title="Facebook" itemprop="significantLink"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.instagram.com/dryco.md/" class="generic-anchor" target="_blank" title="Instagram" itemprop="significantLink"><i class="fab fa-instagram"></i></a>
         </span>
       </section>
       <section class="footer-bottom-section flex-rw">
@@ -253,7 +253,20 @@
         if (newLocale!==undefined)
           this.$i18n.locale = newLocale;
         window.history.pushState("", "", '/'+this.$i18n.locale + this.$route.path);
-      }
+        if (this.$i18n.locale === "ru")
+          document.title = this.$route.meta.titleRu;
+        else
+          document.title = this.$route.meta.title;
+      },
+      tagManagerPhoneClick() {
+        this.$gtm.trackEvent({
+          event: null, // Event type [default = 'interaction'] (Optional)
+          category: 'Telefon',
+          action: 'click-telefon',
+          label: 'Click per numar de telefon',
+          value: 1
+        });
+      },
     }
   };
 </script>

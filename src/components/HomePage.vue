@@ -1,38 +1,40 @@
 <template>
   <div>
     <section id="home">
-      <div class="center">
-        <v-layout
-          column
-          align-center
-          justify-center
-          class="white--text"
-        >
-          <vue-typer
-            :text='[$t("typer.first"),$t("typer.second")]'
-            :repeat='Infinity'
-            initial-action='typing'
-            :pre-type-delay='70'
-            :type-delay='70'
-            :pre-erase-delay='2000'
-            :erase-delay='250'
-            erase-style='clear'
-            :erase-on-complete='false'
-            caret-animation='smooth'
-            class="text-xs-center center__text"
-          ></vue-typer>
-          <v-btn
-            class="mt-2 drycoBtn"
-            color="info"
-            large
-            depressed
-            @click.prevent="changeLocaleUrl()"
-            to="/shop"
+      <progressive-background :src="require('../assets/plum-tree.png')" class="center">
+        <div slot="content" slot-scope="{ visible }" class="center">
+          <v-layout
+            column
+            align-center
+            justify-center
+            class="white--text"
           >
-            {{$t("typer.button")}}
-          </v-btn>
-        </v-layout>
-      </div>
+            <vue-typer
+              :text='[$t("typer.first"),$t("typer.second")]'
+              :repeat='Infinity'
+              initial-action='typing'
+              :pre-type-delay='70'
+              :type-delay='70'
+              :pre-erase-delay='2000'
+              :erase-delay='250'
+              erase-style='clear'
+              :erase-on-complete='false'
+              caret-animation='smooth'
+              class="text-xs-center center__text"
+            ></vue-typer>
+            <v-btn
+              class="mt-2 drycoBtn"
+              color="info"
+              large
+              depressed
+              @click.prevent="changeLocaleUrl()"
+              to="/shop"
+            >
+              {{$t("typer.button")}}
+            </v-btn>
+          </v-layout>
+        </div>
+      </progressive-background>
     </section>
 
     <section id="about">
@@ -81,6 +83,8 @@
     <v-divider></v-divider>
 
     <section id="our-products">
+      <br>
+      <br>
       <HomeProductList/>
     </section>
 
@@ -319,7 +323,6 @@
     display: flex;
     width: 100vw;
     height: 50vh;
-    background-image: url('../assets/plum-tree.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

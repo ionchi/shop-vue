@@ -183,11 +183,13 @@
   "checkout": {
     "header": "Comandă",
     "form": {
-      "name": "Nume",
-      "nameRule": "Adăugați numele",
-      "address": "Adresa",
-      "addressRule1": "Adăugați adresa",
-      "addressRule2": "Adresa poate conține maxim 25 de caractere",
+      "name": "Prenume",
+      "nameRule": "Adăugați prenumele",
+      "surname": "Nume",
+      "surnameRule": "Adăugați numele",
+      "address": "Strada",
+      "addressRule1": "Adăugați strada",
+      "addressRule2": "Strada poate conține maxim 25 de caractere",
       "block": "Bloc",
       "unit": "Scara",
       "interphone": "Interfon",
@@ -203,9 +205,9 @@
       "sendBtn": "Trimite",
       "clearBtn": "Șterge",
       "dialog": {
-        "headline": "Comanda dvs a fost plasată cu succes",
+        "headline": "Comanda dumneavoastră a fost plasată cu succes",
         "text": "Va multumim! Așteptați apelul operatorului telefonic pentru confirmarea comenzii.",
-        "closeBtn": "Închide"
+        "closeBtn": "Înapoi la pagina principală"
       }
     }
   },
@@ -221,6 +223,9 @@
     "header": "Ups, Ne cerem scuze, dar această pagină nu a fost găsită. ",
     "subheader": "Ca să treacă frustrarea, vă oferim cele mai delicioase prune uscate <br> la urmatorul link: ",
     "shopBtn": "Magazin"
+  },
+  "thankYoyPage": {
+    "header": ""
   },
   "404": "ciao",
   "workInProgress": {

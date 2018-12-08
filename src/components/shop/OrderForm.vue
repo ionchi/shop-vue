@@ -4,11 +4,19 @@
       <v-card-text>
         <v-form ref="form" v-model="valid" lazy-validation>
           <v-layout row align-center justify-center>
-            <v-flex xs11 sm11>
+            <v-flex xs11 sm5>
               <v-text-field
                 v-model="name"
                 :rules="nameRules"
                 :label="$t('checkout.form.name') + '*'"
+                required
+              ></v-text-field>
+            </v-flex>
+            <v-flex xs11 sm5 offset-sm1>
+              <v-text-field
+                v-model="surname"
+                :rules="surnameRules"
+                :label="$t('checkout.form.surname') + '*'"
                 required
               ></v-text-field>
             </v-flex>
@@ -70,7 +78,8 @@
               <v-btn
                 :loading="loading"
                 :disabled="!valid"
-                @click="submit"
+                @click="clickHandler"
+                id="order"
               >
                 {{$t('checkout.form.sendBtn')}}
               </v-btn>
@@ -80,31 +89,6 @@
         </v-form>
       </v-card-text>
     </v-card>
-    <v-dialog
-      v-model="dialog"
-      max-width="290"
-    >
-      <v-card>
-        <v-card-title class="headline">{{$t('checkout.form.dialog.headline')}}</v-card-title>
-
-        <v-card-text>
-          {{$t('checkout.form.dialog.text')}}
-        </v-card-text>
-
-        <v-card-actions>
-          <v-spacer></v-spacer>
-
-          <v-btn
-            color="green darken-1"
-            flat="flat"
-            @click="redirectHome()"
-          >
-            {{$t('checkout.form.dialog.closeBtn')}}
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-
   </v-container>
 </template>
 
@@ -124,6 +108,11 @@
       nameRules: function () {
         return [
           v => !!v || this.$tc('checkout.form.nameRule')
+        ];
+      },
+      surnameRules: function () {
+        return [
+          v => !!v || this.$tc('checkout.form.surnameRule')
         ];
       },
       emailRules: function () {
@@ -151,9 +140,9 @@
       return {
         loader: null,
         loading: false,
-        dialog: false,
         valid: false,
         name: '',
+        surname: '',
         email: '',
         phone: '',
         address: '',
@@ -171,6 +160,7 @@
           // Native form submission is not yet supported
           axios.post('../api/sendorder.php', {
             name: this.name,
+            surname: this.surname,
             email: this.email,
             phone: this.phone,
             address: this.address,
@@ -185,8 +175,8 @@
             total: this.total,
           })
             .then(response => {
-              this.dialog = true;
               this.$refs.form.reset();
+              this.$router.push({ path: '/thank-you' });
             })
             .catch(function (error) {
               console.log(error);
@@ -197,9 +187,8 @@
         this.$refs.form.reset();
         this.payment = 'numerar';
       },
-      redirectHome () {
-        this.dialog = false;
-        window.location = "/"+this.$i18n.locale;
+      clickHandler() {
+        this.submit();
       }
     },
     watch: {

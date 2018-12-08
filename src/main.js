@@ -1,8 +1,10 @@
 import Vue from 'vue'
+import VueGtm from 'vue-gtm'
 import BootstrapVue from 'bootstrap-vue'
 import Vuetify from 'vuetify'
 import VueScrollTo from 'vue-scrollto';
 import FlagIcon from 'vue-flag-icon'
+import VueProgressiveImage from 'vue-progressive-image'
 import accounting from 'accounting'
 import pluralize from 'pluralize'
 import router from './router'
@@ -18,7 +20,15 @@ Vue.use(Vuetify);
 Vue.use(BootstrapVue);
 Vue.use(VueScrollTo);
 Vue.use(FlagIcon);
+Vue.use(VueProgressiveImage);
 Vue.config.productionTip = false;
+
+Vue.use(VueGtm, {
+  id: 'GTM-KBS4SH2', // Your GTM ID
+  vueRouter: router,
+  debug: true,
+  enabled: true, // defaults to true. Plugin can be disabled by setting this to false for Ex: enabled: !!GDPR_Cookie (optional)
+});
 
 Vue.filter('formatMoney', function(val){
   return accounting.formatMoney(val, { symbol: "lei",  format: "%v %s" }, 2, ".", ",");
@@ -38,6 +48,10 @@ router.beforeEach((to, from, next) => {
   if (lang===undefined)
     lang = i18n.locale;
   to.params.lang = lang;
+  if (lang === 'ru')
+    document.title = to.meta.titleRu;
+  else
+    document.title = to.meta.title;
   next();
 });
 

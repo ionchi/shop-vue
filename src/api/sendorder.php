@@ -18,6 +18,8 @@
   $cart_total = $data->total;
   $email_to = $configs->email_to;
 
+  $headers = 'From: Dryco-Shop SRL <'.$email_to. '>\r\n';
+
 // DB
 
  $order_id = uniqid();
@@ -44,7 +46,7 @@ $db_database = mysql_select_db($db_name, $con);
       // VALUES
       // ('$order_id','$name','$telno','$address','$block','$unit','$interphone','$info','$payment','$email','$product','$product_qty','$product_price','$cart_shipping','$cart_total')";
 
-      $sql="INSERT INTO orders_new (order_id, name, phone, address, block, unit, interphone, info, payment, email, product, quantity, price, shipping, total)
+      $sql="INSERT INTO orders (order_id, nume, telefon, adresa, bloc, scara, interfon, info, tip_plata, email, produs, cantitate, pret_kg, livrare, total)
       VALUES
       ('$order_id','$name','$telno','$address','$block','$unit','$interphone','$info','$payment','$email','$product','$product_qty','$product_price','$cart_shipping','$cart_total')";
 
@@ -66,8 +68,8 @@ $db_database = mysql_select_db($db_name, $con);
 
   $message = 'Nume: ' . $name . "\n\n" .'Telefon: ' . $telno . "\n\n" .'Adresa: ' . $address . "\n\n" .'Bloc: ' . $block . "\n\n" .'Scara: ' . $unit . "\n\n" .'Interfon: ' . $interphone . "\n\n" .'Info supl: ' . $info . "\n\n" .'Plata: ' . $payment . "\n\n" . 'E-mail: ' . $email . "\n\n" . 'Cart: ' . print_r( $cartResult, true ) . "\n\n" . 'Total: ' . $cart_total;
 
-  $success = @mail($email_to, "[comanda noua]".$email, $message);
+  $success = @mail($email_to, "[comanda noua]".$email, $message, $headers);
 
-  $noreply = @mail($email_from, "[dryco.md] | Mulțumim pentru comanda! | Спасибо за ваш заказ!", "Comanda d-stra a fost plasata cu succes, in curînd, un reprezentant al companiei dryco.md va lua legătura cu d-stră. \n\nЗаказ был успешно размещен, вскоре представитель компании dryco.md свяжется с вами.\n\n Suma spre plata (lei)/Сумма платежа(лей):".$cart_total);
+  $noreply = @mail($email_from, "[dryco.md] | Mulțumim pentru comanda! | Спасибо за ваш заказ!", "Comanda dumneavoastra a fost plasata cu succes. In curînd, un reprezentant al companiei dryco.md va lua legătura cu dumneavoastra. \n\nЗаказ был успешно размещен, вскоре представитель компании dryco.md свяжется с вами.\n\n Suma spre plata (lei)/Сумма платежа(лей):".$cart_total, $headers);
 
 ?>
