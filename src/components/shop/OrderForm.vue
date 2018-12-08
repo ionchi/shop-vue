@@ -29,19 +29,25 @@
                 required
               ></v-text-field>
             </v-flex>
-            <v-flex xs11 sm3>
+            <v-flex xs11 sm2>
               <v-text-field
                 v-model="block"
                 :label="$t('checkout.form.block')"
               ></v-text-field>
             </v-flex>
-            <v-flex xs11 sm3 offset-sm1>
+            <v-flex xs11 sm2 offset-sm1>
+              <v-text-field
+                v-model="floor"
+                :label="$t('checkout.form.floor')"
+              ></v-text-field>
+            </v-flex>
+            <v-flex xs11 sm2 offset-sm1>
               <v-text-field
                 v-model="unit"
                 :label="$t('checkout.form.unit')"
               ></v-text-field>
             </v-flex>
-            <v-flex xs11 sm3 offset-sm1>
+            <v-flex xs11 sm2 offset-sm1>
               <v-text-field
                 v-model="interphone"
                 :label="$t('checkout.form.interphone')"
@@ -150,7 +156,8 @@
         block: '',
         interphone: '',
         info: '',
-        payment: 'numerar'
+        payment: 'numerar',
+        floor: ''
       };
     },
     methods: {
@@ -166,13 +173,14 @@
             address: this.address,
             unit: this.unit,
             block: this.block,
+            floor: this.floor,
             interphone: this.interphone,
             info: this.info,
             payment: this.payment,
             cartProducts: this.cartProducts,
             shipping: this.shipping,
             subtotal: this.subtotal,
-            total: this.total,
+            total: this.total
           })
             .then(response => {
               this.$refs.form.reset();

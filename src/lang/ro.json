@@ -192,6 +192,7 @@
       "addressRule2": "Strada poate conține maxim 25 de caractere",
       "block": "Bloc",
       "unit": "Scara",
+      "floor": "Etaj",
       "interphone": "Interfon",
       "phone": "Telefon",
       "phoneRule": "Numar incorect",
