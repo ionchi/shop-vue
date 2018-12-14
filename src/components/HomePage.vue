@@ -105,8 +105,12 @@
           <div id="services" class="container">
             <div class="row clearfix service-list">
               <div class="col-xs-12 col-sm-12 col-md-3 service-item">
-                <div class="circle"><i class="fa fa-cart-plus"></i></div>
-                <div class="headline">{{$t('homePage.howWeWorkSection.stepOne.title')}}</div>
+                <router-link to="/shop">
+                  <div class="circle"><i class="fa fa-cart-plus"></i></div>
+                </router-link>
+                <div class="headline">
+                  {{$t('homePage.howWeWorkSection.stepOne.title')}}
+                </div>
                 <div class="text">
                   {{$t('homePage.howWeWorkSection.stepOne.message')}}
                 </div>
@@ -119,8 +123,12 @@
                 </div>
               </div>
               <div class="col-xs-12 col-sm-12 col-md-3 service-item">
-                <div class="circle"><i class="fa fa-shipping-fast"></i></div>
-                <div class="headline">{{$t('homePage.howWeWorkSection.stepThree.title')}}</div>
+                <router-link to="/shipping">
+                  <div class="circle"><i class="fa fa-shipping-fast"></i></div>
+                </router-link>
+                <div class="headline">
+                  {{$t('homePage.howWeWorkSection.stepThree.title')}}
+                </div>
                 <div class="text">
                   {{$t('homePage.howWeWorkSection.stepThree.message')}}
                 </div>
@@ -367,5 +375,4 @@
   .vue-typer .custom.caret.idle.pre-erase {
     background-color: #fff;
   }
-
 </style>

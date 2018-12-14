@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container">
+    <div class="container" id="shop-container">
 
       <div class="row mt-2">
 

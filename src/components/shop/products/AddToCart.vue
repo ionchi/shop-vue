@@ -1,5 +1,8 @@
 <template>
-  <v-btn color="info" class="drycoBtn" :disabled="!product.inventory" @click="addToCart(product)">{{$t('homePage.ourProductsSection.addToCartBtn')}}</v-btn>
+  <v-btn color="info" class="drycoBtn" :disabled="!product.inventory"
+         v-scroll-to="{el: '#shop-container', offset: -65 }" @click="addToCart(product)">
+    {{$t('homePage.ourProductsSection.addToCartBtn')}}
+  </v-btn>
 </template>
 
 <script>
@@ -13,9 +16,14 @@
     computed: {
       ...mapGetters([
         'itemsQuantity'
-      ])},
+      ])
+    },
     methods: {
-      ...mapActions(['addToCart'])
+      ...mapActions(['addToCart']),
+      addToCartHandler(product) {
+        this.addToCart(product);
+
+      }
     }
   }
 </script>
