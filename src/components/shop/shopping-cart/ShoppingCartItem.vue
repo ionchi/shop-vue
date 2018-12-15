@@ -57,7 +57,7 @@
   .thumb {
     height: 60px;
     width: 60px;
-    background: url('./../../../assets/product-1.jpg') no-repeat center center #ddd;
+    background: url('./../../../assets/thumb.jpg') no-repeat center center #ddd;
     background-size: 115%;
   }
 
