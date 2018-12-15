@@ -20,8 +20,9 @@
         <li>
           <div class="growing-search">
             <div class="input">
-              <v-text-field v-model="coupon" type="text" name="search"
+              <v-text-field v-model="form.coupon" type="text" name="search"
                             :disabled="couponApplied"
+                            @input.native="forceUpper($event, form, 'coupon')"
                             placeholder="CUPON" class="textCoupon">
               </v-text-field>
             </div>
@@ -45,13 +46,15 @@
       return {
         snackbar: false,
         text: '',
-        coupon: '',
+        form: {
+          coupon: ''
+        },
         couponApplied: false
       };
     },
     methods: {
       applyCoupon() {
-        if (this.coupon === "TEST") {
+        if (this.form.coupon === "TEST") {
           this.text = 'SUCCES';
           this.couponApplied = true;
         }
@@ -65,6 +68,12 @@
         this.text = 'Cupon sters';
         this.snackbar = true;
       },
+      forceUpper (e, obj, prop) {
+        const start = e.target.selectionStart;
+        e.target.value = e.target.value.toUpperCase();
+        this.$set(obj, prop, e.target.value);
+        e.target.setSelectionRange(start, start);
+      }
     }
   };
 </script>
