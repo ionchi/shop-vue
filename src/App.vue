@@ -211,11 +211,14 @@
           <router-link @click.prevent="changeLocaleUrl()" to="/shipping" class="generic-anchor">{{$t('footer.shipping')}}</router-link>
         </div>
       </section>
+
+      <!--
       <cookie-law
         theme="dark-lime"
         :buttonText="$t('cookiesConsent.agreeBtn')"
         :message="$t('cookiesConsent.message')">
       </cookie-law>
+      -->
     </footer>
   </v-app>
 </template>

@@ -86,14 +86,6 @@
       <br>
       <br>
       <HomeProductList/>
-      <v-alert
-        :value="true"
-        color="success"
-        icon="new_releases"
-        class="christmas-sale"
-      >
-        Daca cumparati in perioada sarbatorilor, ve-ti avea 20% de reducere dupa ce plasati comanda!
-      </v-alert>
     </section>
 
     <v-divider></v-divider>
