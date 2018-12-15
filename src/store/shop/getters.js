@@ -42,5 +42,5 @@ export const shipping = state => {
 };
 
 export const total = state => {
-  return subtotal(state) + taxes(state) + shipping(state);
+  return (subtotal(state) + taxes(state) + shipping(state));
 };

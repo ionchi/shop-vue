@@ -86,6 +86,14 @@
       <br>
       <br>
       <HomeProductList/>
+      <v-alert
+        :value="true"
+        color="success"
+        icon="new_releases"
+        class="christmas-sale"
+      >
+        Daca cumparati in perioada sarbatorilor, ve-ti avea 20% de reducere dupa ce plasati comanda!
+      </v-alert>
     </section>
 
     <v-divider></v-divider>
@@ -374,5 +382,15 @@
 
   .vue-typer .custom.caret.idle.pre-erase {
     background-color: #fff;
+  }
+
+  .christmas-sale {
+    width: 80%;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .christmas-sale {
+      width: 100%;
+    }
   }
 </style>

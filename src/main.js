@@ -43,6 +43,10 @@ Vue.filter('dbLangFix', function(val){
 });
 Vue.filter('pluralize', pluralize);
 
+Vue.filter('saleChristmas', function(val){
+  return val / 0.8;
+});
+
 router.beforeEach((to, from, next) => {
   let lang = to.params.lang;
   if (lang===undefined)
