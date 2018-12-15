@@ -26,7 +26,6 @@ Vue.config.productionTip = false;
 Vue.use(VueGtm, {
   id: 'GTM-KBS4SH2', // Your GTM ID
   vueRouter: router,
-  debug: true,
   enabled: true, // defaults to true. Plugin can be disabled by setting this to false for Ex: enabled: !!GDPR_Cookie (optional)
 });
 
