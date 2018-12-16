@@ -23,7 +23,7 @@ export const subtotal = state => {
     return subtotal + item.price * item.quantity;
   }, 0);
 
-  return state.shoppingCart.productDiscount ? sum * 0.7 : sum;
+  return sum;
 };
 
 export const taxes = state => subtotal(state) * 0.00;
@@ -41,6 +41,18 @@ export const shipping = state => {
   }
 };
 
+export const isActiveCoupon = state => {
+  return state.coupons.isActiveCoupon;
+};
+
+export const activeCoupon = state => {
+  return state.coupons.activeCoupon;
+};
+
 export const total = state => {
-  return (subtotal(state) + taxes(state) + shipping(state));
+  if (state.coupons.isActiveCoupon) {
+    return (subtotal(state) + shipping(state))*(1-state.coupons.activeCoupon.discount);
+  }
+
+  return (subtotal(state) + shipping(state));
 };

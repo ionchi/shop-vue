@@ -178,7 +178,18 @@
       "total": "Total"
     },
     "kg": "kg",
-    "price": "Preț"
+    "price": "Preț",
+    "coupon": {
+      "applyBtn": "Aplica cupon",
+      "removeBtn": "Sterge cupon",
+      "placeholder": "CUPON",
+      "snackbar": {
+        "closeBtn": "Inchide",
+        "successText": "Cupon aplicat cu succes",
+        "failText": "Cuponul aplicat nu este valid",
+        "removeText": "Cuponul a fost sters cu succes"
+      }
+    }
   },
   "checkout": {
     "header": "Comandă",

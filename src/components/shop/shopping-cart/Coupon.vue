@@ -1,45 +1,49 @@
 <template>
-    <div>
-      <v-snackbar
-        v-model="snackbar"
-        :bottom="true"
-        :left="true"
-        :timeout="3000"
+  <div>
+    <v-snackbar
+      v-model="snackbar"
+      :bottom="true"
+      :left="true"
+      :timeout="3000"
+    >
+      <span v-if="couponApplied">{{$t('shop.coupon.snackbar.successText')}}</span>
+      <span v-else>{{text}}</span>
+
+      <v-btn
+        color="pink"
+        flat
+        @click="snackbar = false"
       >
-        {{text}}
-        <v-btn
-          color="pink"
-          flat
-          @click="snackbar = false"
-        >
-          Inchide
-        </v-btn>
-      </v-snackbar>
+        {{$t('shop.coupon.snackbar.closeBtn')}}
+      </v-btn>
+    </v-snackbar>
 
-      <ul id="coupon-input">
-        <li>
-          <div class="growing-search">
-            <div class="input">
-              <v-text-field v-model="form.coupon" type="text" name="search"
-                            :disabled="couponApplied"
-                            @input.native="forceUpper($event, form, 'coupon')"
-                            placeholder="CUPON" class="textCoupon">
-              </v-text-field>
-            </div>
+    <ul id="coupon-input">
+      <li>
+        <div class="growing-search">
+          <div class="input">
+            <v-text-field v-model="form.coupon" type="text" name="cupon"
+                          :disabled="couponApplied"
+                          @input.native="forceUpper($event, form, 'coupon')"
+                          :placeholder="$t('shop.coupon.placeholder')" class="textCoupon">
+            </v-text-field>
           </div>
-        </li>
+        </div>
+      </li>
 
-      </ul>
+    </ul>
 
-      <v-btn v-if="couponApplied" color="error"
-             @click="removeCoupon">STERGE CUPONUL</v-btn>
+    <v-btn v-if="couponApplied" color="error"
+           @click="removeCoupon">{{$t('shop.coupon.removeBtn')}}</v-btn>
 
-      <v-btn v-else class="apply-coupon-btn" color="primary"
-             @click="applyCoupon">APLICA CUPON</v-btn>
-    </div>
+    <v-btn v-else class="apply-coupon-btn" color="primary"
+           @click="applyCoupon">{{$t('shop.coupon.applyBtn')}}</v-btn>
+  </div>
 </template>
 
 <script>
+  import { mapActions } from 'vuex'
+
   export default {
     name: 'Coupon',
     data() {
@@ -49,23 +53,29 @@
         form: {
           coupon: ''
         },
-        couponApplied: false
+        textSuccess: 'SUCCESS'
       };
     },
+    computed: {
+      couponApplied: function () {
+        return this.$store.getters.isActiveCoupon;
+      }
+    },
     methods: {
+      ...mapActions([
+        'activateCoupon',
+        'deactivateCoupon'
+      ]),
       applyCoupon() {
-        if (this.form.coupon === "TEST") {
-          this.text = 'SUCCES';
-          this.couponApplied = true;
+        this.activateCoupon(this.form.coupon);
+        if (!this.couponApplied) {
+          this.text = this.$tc('shop.coupon.snackbar.failText');
         }
-        else
-          this.text = 'FAIL';
-
         this.snackbar = true;
       },
       removeCoupon() {
-        this.couponApplied = false;
-        this.text = 'Cupon sters';
+        this.deactivateCoupon();
+        this.text = this.$tc('shop.coupon.snackbar.removeText');
         this.snackbar = true;
       },
       forceUpper (e, obj, prop) {
@@ -145,14 +155,14 @@
   }
 
   @media only screen and (max-width: 1000px) and (min-width: 768px){
-    .growing-search .input input {
-      width: 100px;
+    .growing-search .input .textCoupon {
+      width: 80px;
     }
   }
 
   @media only screen and (max-width: 768px) {
-    .growing-search .input input {
-      width: 150px;
+    .growing-search .input .textCoupon {
+      width: 120px;
     }
 
     ul#coupon-input > li {

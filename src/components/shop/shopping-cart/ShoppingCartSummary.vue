@@ -5,10 +5,10 @@
       <v-flex xs11 sm4 class="price-section">
         <div class="headline">{{$t('shop.summary.subtotal')}}:</div>
         <div class="font-weight-light" v-if="this.$i18n.locale==='ro'">
-          {{(total - shipping) | formatMoney}}
+          {{subtotal | formatMoney}}
         </div>
         <div class="font-weight-light" v-else>
-          {{(total - shipping) | formatMoneyRu}}
+          {{subtotal | formatMoneyRu}}
         </div>
       </v-flex>
       <v-flex xs11 sm4 class="price-section">
@@ -22,8 +22,12 @@
       <v-flex xs11 sm4 class="price-section">
         <div class="headline"><strong>{{$t('shop.summary.total')}}:</strong></div>
         <div class="font-weight-light">
-          <span v-if="this.$i18n.locale==='ro'"><strong v-if="!totalDiscount"> {{total | formatMoney}}</strong></span>
-          <span v-else><strong v-if="!totalDiscount"> {{total | formatMoneyRu}}</strong></span>
+          <span v-if="this.$i18n.locale==='ro'">
+            <strong v-if="!totalDiscount"> {{total | formatMoney}}</strong>
+          </span>
+          <span v-else>
+            <strong v-if="!totalDiscount"> {{total | formatMoneyRu}}</strong>
+          </span>
           <span v-if="totalDiscount">
           <strong> {{totalWithDiscount | formatMoney}}</strong>
         </span>

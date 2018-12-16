@@ -179,7 +179,18 @@
       "total": "Всего"
     },
     "kg": "кг",
-    "price": "цена"
+    "price": "цена",
+    "coupon": {
+      "applyBtn": "Применить купон",
+      "removeBtn": "Удалить купон",
+      "placeholder": "КУПОН",
+      "snackbar": {
+        "closeBtn": "Закрыть",
+        "successText": "Купон успешно применен",
+        "failText": "Примененный купон недействителен",
+        "removeText": "Купон успешно удален"
+      }
+    }
   },
   "checkout": {
     "header": "Команда",

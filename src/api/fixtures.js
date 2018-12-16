@@ -10,14 +10,25 @@ const promotions = [
   { 'id': 3, 'title': 'Free Shipping' }
 ];
 
+const coupons = [
+  { 'id': 1, 'code': 'CEZARA', 'discount': 0.5 },
+  { 'id': 2, 'code': 'CRACIUN', 'discount': 0.2 },
+  { 'id': 3, 'code': 'PETRICA', 'discount': 0.5 },
+  { 'id': 4, 'code': 'REVIEW', 'discount': 0.05 },
+];
+
 // Simulate requests
 
 export default {
   getProducts (cb) {
-    setTimeout(() => cb(products), 200);
+    setTimeout(() => cb(products), 100);
   },
 
   getPromotions (cb) {
-    setTimeout(() => cb(promotions), 200);
-  }
+    setTimeout(() => cb(promotions), 100);
+  },
+
+  getCoupons (cb) {
+    setTimeout(() => cb(coupons), 100);
+  },
 }

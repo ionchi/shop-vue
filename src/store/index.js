@@ -7,6 +7,7 @@ import profile from './shop/modules/profile'
 import promotions from './shop/modules/promotions'
 import shoppingCart from './shop/modules/shopping-cart'
 import language from './shop/modules/language'
+import coupons from './shop/modules/coupons'
 
 Vue.use(Vuex);
 
@@ -20,7 +21,8 @@ export default new Vuex.Store({
     profile,
     promotions,
     shoppingCart,
-    language
+    language,
+    coupons
   },
   strict: debug,
 })

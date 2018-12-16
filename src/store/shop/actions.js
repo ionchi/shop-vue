@@ -35,3 +35,20 @@ export const toggleCoupon = ({ commit }, coupon) => {
 export const setLang = ({commit}, payload) => {
   commit('SET_LANG', payload);
 };
+
+export const activateCoupon = ({ commit }, coupon) => {
+  api.getCoupons(coupons => {
+    for (let i=0 ; i < coupons.length ; i++)
+    {
+      if (coupons[i]['code'] === coupon) {
+        commit('ACTIVATE_COUPON', coupons[i]);
+        commit('TOGGLE');
+      }
+    }
+  });
+};
+
+export const deactivateCoupon = ({ commit }) => {
+  commit('DEACTIVATE_COUPON');
+  commit('TOGGLE');
+};
