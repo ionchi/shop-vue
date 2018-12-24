@@ -184,7 +184,8 @@
           })
             .then(response => {
               this.$refs.form.reset();
-              this.$router.push({ path: '/thank-you' });
+              window.location = '/' + this.$i18n.locale + '/thank-you';
+              //this.$router.push({ path: '/thank-you' });
             })
             .catch(function (error) {
               console.log(error);
@@ -204,7 +205,7 @@
         const l = this.loader;
         this[l] = !this[l];
 
-        setTimeout(() => (this[l] = false), 3000);
+        setTimeout(() => (this[l] = false), 4000);
 
         this.loader = null;
       }

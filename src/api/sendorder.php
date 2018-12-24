@@ -3,12 +3,14 @@
 
   $data = json_decode(file_get_contents("php://input"));
 
-  $name = $data->name;
+  $firstname = $data->name;
+  $lastname = $data->surname;
   $telno = $data->phone;
   $address = $data->address;
   $block = $data->block;
   $unit = $data->unit;
   $interphone = $data->interphone;
+  $floor = $data->floor;
   $info = $data->info;
   $payment = $data->payment;
   $email = $data->email;
@@ -35,6 +37,7 @@ if (!$con)
   die('Could not connect: ' . mysql_error());
 }
 
+mysql_set_charset('utf8', $con);
 $db_database = mysql_select_db($db_name, $con);
 
   foreach ($cartProducts as $value) {
@@ -42,13 +45,9 @@ $db_database = mysql_select_db($db_name, $con);
       $product_qty = $value->quantity;
       $product_price = $value->price;
 
-      // $sql="INSERT INTO orders (order_id, nume, telefon, adresa, bloc, scara, interfon, info, tip_plata, email, produs, cantitate, pret_kg, livrare, total)
-      // VALUES
-      // ('$order_id','$name','$telno','$address','$block','$unit','$interphone','$info','$payment','$email','$product','$product_qty','$product_price','$cart_shipping','$cart_total')";
-
-      $sql="INSERT INTO orders (order_id, nume, telefon, adresa, bloc, scara, interfon, info, tip_plata, email, produs, cantitate, pret_kg, livrare, total)
+      $sql="INSERT INTO orders (orderId, firstname, lastname, phoneNr, address, block, unit, interphone, floor, info, payment, email, product, productQty, productPrice, shipping, total)
       VALUES
-      ('$order_id','$name','$telno','$address','$block','$unit','$interphone','$info','$payment','$email','$product','$product_qty','$product_price','$cart_shipping','$cart_total')";
+      ('$order_id','$firstname','$lastname','$telno','$address','$block','$unit','$interphone','$floor','$info','$payment','$email','$product','$product_qty','$product_price','$cart_shipping','$cart_total')";
 
       if (!mysql_query($sql,$con))
         {
@@ -66,7 +65,7 @@ $db_database = mysql_select_db($db_name, $con);
       $cartResult[] = $value->quantity;
   }
 
-  $message = 'Nume: ' . $name . "\n\n" .'Telefon: ' . $telno . "\n\n" .'Adresa: ' . $address . "\n\n" .'Bloc: ' . $block . "\n\n" .'Scara: ' . $unit . "\n\n" .'Interfon: ' . $interphone . "\n\n" .'Info supl: ' . $info . "\n\n" .'Plata: ' . $payment . "\n\n" . 'E-mail: ' . $email . "\n\n" . 'Cart: ' . print_r( $cartResult, true ) . "\n\n" . 'Total: ' . $cart_total;
+  $message = 'Prenume: ' . $firstname . "\n\n" .'Nume: ' . $lastname . "\n\n" .'Telefon: ' . $telno . "\n\n" .'Adresa: ' . $address . "\n\n" .'Bloc: ' . $block . "\n\n" .'Scara: ' . $unit . "\n\n" .'Interfon: ' . $interphone . "\n\n" .'Etaj: ' . $floor . "\n\n" .'Info supl: ' . $info . "\n\n" .'Plata: ' . $payment . "\n\n" . 'E-mail: ' . $email . "\n\n" . 'Livraare: ' . $cart_shipping . "\n\n" . 'Cart: ' . print_r( $cartResult, true ) . "\n\n" . 'Total: ' . $cart_total;
 
   $success = @mail($email_to, "[comanda noua]".$email, $message, $headers);
 
