@@ -20,7 +20,7 @@
   $cart_total = $data->total;
   $email_to = $configs->email_to;
 
-  $headers = 'From: Dryco-Shop SRL <'.$email_to. '>\r\n';
+  $headers = 'From: Dryco-Shop SRL <'.$email_to. '>';
 
 // DB
 

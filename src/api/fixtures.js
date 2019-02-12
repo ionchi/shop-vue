@@ -11,10 +11,13 @@ const promotions = [
 ];
 
 const coupons = [
-  { 'id': 1, 'code': 'CEZARA', 'discount': 0.5 },
-  { 'id': 2, 'code': 'CRACIUN', 'discount': 0.2 },
-  { 'id': 3, 'code': 'PETRICA', 'discount': 0.5 },
-  { 'id': 4, 'code': 'REVIEW', 'discount': 0.05 },
+  { 'id': 1, 'code': '5OFFBAKS', 'discount': 0.05 },
+  { 'id': 2, 'code': '10OFFBAKS', 'discount': 0.1 },
+  { 'id': 3, 'code': '15OFFBAKS', 'discount': 0.15 },
+  { 'id': 4, 'code': '20OFFBAKS', 'discount': 0.20 },
+  { 'id': 5, 'code': '25OFFBAKS', 'discount': 0.25 },
+  { 'id': 6, 'code': '30OFFBAKS', 'discount': 0.30 },
+  { 'id': 7, 'code': '50OFFBAKS', 'discount': 0.50 },
 ];
 
 // Simulate requests
